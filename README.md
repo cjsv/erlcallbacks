@@ -1,4 +1,4 @@
 erlcallbacks
 ============
 
-Callback templates for Erlang behaviours
+Callback templates for Erlang behaviours.
