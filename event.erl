@@ -4,6 +4,7 @@
 -export([init/1,handle_event/2,handle_call/2,handle_info/2]). % required
 -export([erminate/2,code_change/3]). % required
 -export([format_status/2]). % optional
+-export([start_link/0]). % gen_event api
 
 %%% required callbacks
 
@@ -125,4 +126,18 @@ code_change(_OldVsn, State, _Extra) ->
 format_status(_Opt, [_PDict, _State]) ->
     status.
 
-%%% implementation
+%%% gen_event api
+
+%%
+%% @doc API suggested in OTP Design Principles User's Guide to start
+%% this gen_event process.
+%%
+-spec start_link() ->
+			{ok, Pid :: pid()} |
+			ignore |
+			{error,
+			 Error :: {already_started, Pid :: pid()}.
+start_link() ->
+    gen_event:start_link({local, ?MODULE}, ?MODULE, [], []).
+
+%%% functions internal to your implementation

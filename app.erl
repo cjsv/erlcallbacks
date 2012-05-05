@@ -86,4 +86,4 @@ prep_stop(State) ->
 config_change(_Changed, _New, _Remove) ->
     ok.
 
-%%% implementation
+%%% functions internal to your implementation

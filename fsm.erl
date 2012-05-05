@@ -5,6 +5,7 @@
 -export([terminate/3,code_change/4]). % required
 %-export([StateName/2,StateName/3]). % required per statename
 -export([format_status/2]). % optional
+-export([start_link/0]). % gen_fsm api
 
 %%% required callbacks
 
@@ -167,4 +168,18 @@ StateName(Event, From, State) ->
 format_status(_Opt, [_PDict, _State]) ->
     status.
 
-%%% implementation
+%%% gen_fsm api
+
+%%
+%% @doc API suggested in OTP Design Principles User's Guide to start
+%% this gen_fsm process.
+%%
+-spec start_link() ->
+			{ok, Pid :: pid()} |
+			ignore |
+			{error,
+			 Error :: {already_started, Pid :: pid()} | term()}.
+start_link() ->
+    gen_fsm:start_link({local, ?MODULE}, ?MODULE, [], []).
+
+%%% functions internal to your implementation
