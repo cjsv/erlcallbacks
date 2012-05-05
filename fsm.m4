@@ -5,6 +5,7 @@
 -export([terminate/3,code_change/4]). % required
 %-export([StateName/2,StateName/3]). % required per statename
 -export([format_status/2]). % optional
+-export([start_link/0]). % gen_fsm api
 
 %%% required callbacks
 
@@ -39,4 +40,7 @@ include(statename3.fun)
 %%% optional callback
 
 include(format_status.fun)
-%%% implementation
+%%% gen_fsm api
+
+include(start_link.fun)
+%%% functions internal to your implementation

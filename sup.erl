@@ -46,5 +46,17 @@ init(_Args) ->
 
 %%% implementation
 
+%%
+%% @doc API suggested in OTP Design Principles User's Guide to start
+%% this supervisor process.
+%%
+-spec start_link() ->
+			{ok, Pid :: pid()} |
+			ignore |
+			{error,
+			 Error :: {already_started, Pid :: pid()} |
+				  shudown |
+				  term()}.
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+

@@ -31,5 +31,4 @@
 include(init.fun)
 %%% implementation
 
-start_link() ->
-    supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+include(start_link.fun)

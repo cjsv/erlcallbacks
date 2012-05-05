@@ -4,7 +4,7 @@
 -export([init/1,handle_call/3,handle_cast/2,handle_info/2]). % required
 -export([terminate/2,code_change/3]). % required
 %%-export([format_status/2]). % optional
--export([start_link/0]). % api
+-export([start_link/0]). % gen_server api
 
 %%% required callbacks
 
@@ -116,9 +116,18 @@ code_change(_OldVsn, State, _Extra) ->
 format_status(_Opt, [_PDict, _State]) ->
     status.
 
-%%% api
+%%% gen_server api
 
+%%
+%% @doc API suggested in OTP Design Principles User's Guide to start
+%% this gen_server process.
+%%
+-spec start_link() ->
+			{ok, Pid :: pid()} |
+			ignore |
+			{error,
+			 Error :: {already_started, Pid :: pid()} | term()}.
 start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% implementation
+%%% functions internal to your implementation

@@ -4,7 +4,7 @@
 -export([init/1,handle_call/3,handle_cast/2,handle_info/2]). % required
 -export([terminate/2,code_change/3]). % required
 %%-export([format_status/2]). % optional
--export([start_link/0]). % api
+-export([start_link/0]). % gen_server api
 
 %%% required callbacks
 
@@ -17,9 +17,7 @@ include(code_change.fun)
 %%% optional callback
 
 include(format_status.fun)
-%%% api
+%%% gen_server api
 
-start_link() ->
-    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
-
-%%% implementation
+include(start_link.fun)
+%%% functions internal to your implementation
