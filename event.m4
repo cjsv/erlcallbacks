@@ -17,7 +17,7 @@ include(code_change.fun)
 %%% optional callback
 
 include(format_status.fun)
-%%% get_event api
+%%% gen_event api
 
 include(start_link.fun)
 %%% functions internal to your implementation
