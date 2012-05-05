@@ -13,4 +13,4 @@ include(stop.fun)
 include(start_phase.fun)
 include(prep_stop.fun)
 include(config_change.fun)
-%%% implementation
+%%% functions internal to your implementation

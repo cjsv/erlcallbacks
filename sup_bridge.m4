@@ -7,4 +7,4 @@
 
 include(init.fun)
 include(terminate.fun)
-%%% implementation
+%%% functions internal to your implementation

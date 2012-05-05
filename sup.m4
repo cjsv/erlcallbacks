@@ -2,7 +2,7 @@
 
 -behaviour(supervisor).
 -export([init/1]). % required
--export([start_link/0]). % implementation
+-export([start_link/0]). % supervisor api
 
 %%% helper macro
 
@@ -29,6 +29,8 @@
 		    simple_one_for_one.
 
 include(init.fun)
-%%% implementation
+%%% supervisor api
 
 include(start_link.fun)
+
+%%% functions internal to your implementation
