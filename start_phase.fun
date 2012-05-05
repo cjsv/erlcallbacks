@@ -9,12 +9,12 @@ ifdef(<!AP!>,<!%% invoked by
 %% the -export list above and delete it. ***
 %%
 -spec start_phase(Phase :: atom(),
-		  StartType :: normal |
-			       {takeover, Node :: node()} |
-			       {failover, Node :: node()},
-		  PhaseArgs :: term()) ->
-			 ok |
-			 {error, Reason :: term()}.
+                  StartType :: normal |
+                               {takeover, Node :: node()} |
+                               {failover, Node :: node()},
+                  PhaseArgs :: term()) ->
+                         ok |
+                         {error, Reason :: term()}.
 start_phase(_Phase, _StartType, _PhaseArgs) ->
     ok.
 !>)dnl

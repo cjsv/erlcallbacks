@@ -5,16 +5,16 @@ ifdef(<!EV!>,<!%% invoked by
 %% @doc Standard gen_event callback. Handle synchronous requests.
 %%
 -spec handle_call(Request :: term(),
-		  State :: term()) ->
-			 {ok, Reply :: term(), NewState :: term()} |
-			 {ok, Reply :: term(), NewState :: term(), hibernate} |
-			 {swap_handler,
-			  Reply :: term(),
-			  Args1 :: term(),
-			  NewState :: term(),
-			  Handler2 :: atom() | {atom(), Id :: term()},
-			  Args2 :: term()} |
-			 {remove_handler, Reply :: term()}.
+                  State :: term()) ->
+                         {ok, Reply :: term(), NewState :: term()} |
+                         {ok, Reply :: term(), NewState :: term(), hibernate} |
+                         {swap_handler,
+                          Reply :: term(),
+                          Args1 :: term(),
+                          NewState :: term(),
+                          Handler2 :: atom() | {atom(), Id :: term()},
+                          Args2 :: term()} |
+                         {remove_handler, Reply :: term()}.
 handle_call(_Request, State) ->
     {ok, reply, State}.
 !>)dnl

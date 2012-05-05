@@ -17,9 +17,9 @@
 %% server process.
 %%
 -spec init(InitArgs :: term()) ->
-		  {ok, State :: term()} |
-		  {ok, State :: term(), hibernate} |
-		  {error, Reason :: term()}.
+                  {ok, State :: term()} |
+                  {ok, State :: term(), hibernate} |
+                  {error, Reason :: term()}.
 init(_Args) ->
     {ok, nostate}.
 
@@ -29,15 +29,15 @@ init(_Args) ->
 %% @doc Standard gen_event callback. A specified Event has occurred.
 %%
 -spec handle_event(Event :: term(),
-		   State :: term()) ->
-			  {ok, NewState :: term()} |
-			  {ok, NewState :: term(), hibernate} |
-			  {swap_handler,
-			   Args1 :: term(),
-			   NewState :: term(),
-			   Handler2 :: atom() | {atom(), Id :: term()},
-			   Args2 :: term()} |
-			  remove_handler.
+                   State :: term()) ->
+                          {ok, NewState :: term()} |
+                          {ok, NewState :: term(), hibernate} |
+                          {swap_handler,
+                           Args1 :: term(),
+                           NewState :: term(),
+                           Handler2 :: atom() | {atom(), Id :: term()},
+                           Args2 :: term()} |
+                          remove_handler.
 handle_event(_Event, State) ->
     {ok, State}.
 
@@ -48,16 +48,16 @@ handle_event(_Event, State) ->
 %% @doc Standard gen_event callback. Handle synchronous requests.
 %%
 -spec handle_call(Request :: term(),
-		  State :: term()) ->
-			 {ok, Reply :: term(), NewState :: term()} |
-			 {ok, Reply :: term(), NewState :: term(), hibernate} |
-			 {swap_handler,
-			  Reply :: term(),
-			  Args1 :: term(),
-			  NewState :: term(),
-			  Handler2 :: atom() | {atom(), Id :: term()},
-			  Args2 :: term()} |
-			 {remove_handler, Reply :: term()}.
+                  State :: term()) ->
+                         {ok, Reply :: term(), NewState :: term()} |
+                         {ok, Reply :: term(), NewState :: term(), hibernate} |
+                         {swap_handler,
+                          Reply :: term(),
+                          Args1 :: term(),
+                          NewState :: term(),
+                          Handler2 :: atom() | {atom(), Id :: term()},
+                          Args2 :: term()} |
+                         {remove_handler, Reply :: term()}.
 handle_call(_Request, State) ->
     {ok, reply, State}.
 
@@ -66,14 +66,14 @@ handle_call(_Request, State) ->
 %% @doc Standard gen_event callback. Handle non-event information.
 %%
 -spec handle_info(Info :: term(), State :: term()) ->
-			 {ok, NewState :: term()} |
-			 {ok, NewState :: term(), hibernate} |
-			 {swap_handler,
-			  Args1 :: term(),
-			  NewState :: term(),
-			  Handler2 :: atom() | {atom(), Id :: term()},
-			  Args2 :: term()} |
-			 remove_handler.
+                         {ok, NewState :: term()} |
+                         {ok, NewState :: term(), hibernate} |
+                         {swap_handler,
+                          Args1 :: term(),
+                          NewState :: term(),
+                          Handler2 :: atom() | {atom(), Id :: term()},
+                          Args2 :: term()} |
+                         remove_handler.
 handle_info(_Info, State) ->
     {ok, State}.
 
@@ -85,13 +85,13 @@ handle_info(_Info, State) ->
 %% @doc Standard gen_event callback. Clean up State before stopping.
 %%
 -spec terminate(Args :: term() |
-			{stop, Reason :: term()} |
-			stop |
-			remove_handler |
-			{error, {'EXIT', Reason :: term()}} |
-			{error, term()},
-		State :: term()) ->
-		       Ignored :: term().
+                        {stop, Reason :: term()} |
+                        stop |
+                        remove_handler |
+                        {error, {'EXIT', Reason :: term()}} |
+                        {error, term()},
+                State :: term()) ->
+                       Ignored :: term().
 terminate(_Args, _State) ->
     ok.
 
@@ -103,8 +103,8 @@ terminate(_Args, _State) ->
 %%
 -spec code_change(OldVsn :: (term() | {down, term()}),
                   State :: term(),
-		  Extra :: term()) ->
-			 {ok, NewState :: term()}.
+                  Extra :: term()) ->
+                         {ok, NewState :: term()}.
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 
@@ -120,9 +120,9 @@ code_change(_OldVsn, State, _Extra) ->
 %% the -export list above and delete it. ***
 %%
 -spec format_status(Opt :: normal | terminate,
-		    [{PDict :: [{Key :: atom(), Value :: term()}],
-		      StateData :: term()}]) ->
-			   Status :: term().
+                    [{PDict :: [{Key :: atom(), Value :: term()}],
+                      StateData :: term()}]) ->
+                           Status :: term().
 format_status(_Opt, [_PDict, _State]) ->
     status.
 
@@ -133,10 +133,10 @@ format_status(_Opt, [_PDict, _State]) ->
 %% this gen_event process.
 %%
 -spec start_link() ->
-			{ok, Pid :: pid()} |
-			ignore |
-			{error,
-			 Error :: {already_started, Pid :: pid()}.
+                        {ok, Pid :: pid()} |
+                        ignore |
+                        {error,
+                         Error :: {already_started, Pid :: pid()}.
 start_link() ->
     gen_event:start_link({local, ?MODULE}, ?MODULE, [], []).
 

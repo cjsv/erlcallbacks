@@ -10,8 +10,8 @@ ifdef(<!FS!>,<!%% invoked by
 %% then remove this instance. ***
 %%
 -spec StateName(Event :: timeout | term(),
-		StateData :: term()) ->
-		       Result :: result().
+                StateData :: term()) ->
+                       Result :: result().
 StateName(Event, State) ->
     {stop, unimplemented, []}.
 !>)dnl

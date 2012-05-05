@@ -7,10 +7,10 @@ ifdef(<!FS!>,<!%% invoked by
 %% current state.
 %%
 -spec handle_sync_event(Event :: term(),
-			From :: {pid(), Tag :: term()},
+                        From :: {pid(), Tag :: term()},
                         StateName :: atom(),
-			StateData :: term()) ->
-			       Result :: sync_result().
+                        StateData :: term()) ->
+                               Result :: sync_result().
 handle_sync_event(_Event, _From, _StateName, _State) ->
     result.
 !>)dnl

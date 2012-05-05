@@ -4,15 +4,15 @@ ifdef(<!EV!>,<!%% invoked by
 %% @doc Standard gen_event callback. A specified Event has occurred.
 %%
 -spec handle_event(Event :: term(),
-		   State :: term()) ->
-			  {ok, NewState :: term()} |
-			  {ok, NewState :: term(), hibernate} |
-			  {swap_handler,
-			   Args1 :: term(),
-			   NewState :: term(),
-			   Handler2 :: atom() | {atom(), Id :: term()},
-			   Args2 :: term()} |
-			  remove_handler.
+                   State :: term()) ->
+                          {ok, NewState :: term()} |
+                          {ok, NewState :: term(), hibernate} |
+                          {swap_handler,
+                           Args1 :: term(),
+                           NewState :: term(),
+                           Handler2 :: atom() | {atom(), Id :: term()},
+                           Args2 :: term()} |
+                          remove_handler.
 handle_event(_Event, State) ->
     {ok, State}.
 !>)dnl
@@ -26,9 +26,9 @@ ifdef(<!FS!>,<!
 %% same handler is called regardless of the current state.
 %%
 -spec handle_event(Event :: term(),
-		   StateName :: atom(),
+                   StateName :: atom(),
                    StateData :: term()) ->
-			  Result :: result().
+                          Result :: result().
 handle_event(_Event, _StateName, _State) ->
     result.
 !>)dnl

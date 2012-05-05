@@ -5,7 +5,7 @@ ifdef(<!AP!>,<!%% invoked by
 %% @doc Standard application callback. Stop the application.
 %%
 -spec stop(State :: term()) ->
-		  term().
+                  term().
 stop(_State) ->
     ok.
 !>)dnl

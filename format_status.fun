@@ -8,9 +8,9 @@ ifdef(<!EV!>,<!%% invoked by
 %% the -export list above and delete it. ***
 %%
 -spec format_status(Opt :: normal | terminate,
-		    [{PDict :: [{Key :: atom(), Value :: term()}],
-		      StateData :: term()}]) ->
-			   Status :: term().
+                    [{PDict :: [{Key :: atom(), Value :: term()}],
+                      StateData :: term()}]) ->
+                           Status :: term().
 format_status(_Opt, [_PDict, _State]) ->
     status.
 !>)dnl
@@ -24,9 +24,9 @@ ifdef(<!FS!>,<!%% invoked by
 %% the -export list above and delete it. ***
 %%
 -spec format_status(Opt :: normal | terminate,
-		    [{PDict :: [{Key :: atom(), Value :: term()}],
-		      StateData :: term()}]) ->
-			   Status :: term().
+                    [{PDict :: [{Key :: atom(), Value :: term()}],
+                      StateData :: term()}]) ->
+                           Status :: term().
 format_status(_Opt, [_PDict, _State]) ->
     status.
 !>)dnl
@@ -40,9 +40,9 @@ ifdef(<!SE!>,<!%% invoked by
 %% the -export list above and delete it. ***
 %%
 -spec format_status(Opt :: normal | terminate,
-		    [{PDict :: [{Key :: atom(), Value :: term()}],
-		      StateData :: term()}]) ->
-			   Status :: term().
+                    [{PDict :: [{Key :: atom(), Value :: term()}],
+                      StateData :: term()}]) ->
+                           Status :: term().
 format_status(_Opt, [_PDict, _State]) ->
     status.
 !>)dnl

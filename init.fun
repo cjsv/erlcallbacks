@@ -7,9 +7,9 @@ ifdef(<!EV!>,<!%% invoked by
 %% server process.
 %%
 -spec init(InitArgs :: term()) ->
-		  {ok, State :: term()} |
-		  {ok, State :: term(), hibernate} |
-		  {error, Reason :: term()}.
+                  {ok, State :: term()} |
+                  {ok, State :: term(), hibernate} |
+                  {error, Reason :: term()}.
 init(_Args) ->
     {ok, nostate}.
 !>)dnl
@@ -21,12 +21,12 @@ ifdef(<!FS!>,<!%% invoked by
 %% server process.
 %%
 -spec init(Args :: term()) ->
-		  {ok, StateName :: atom(), StateData :: term()} |
-		  {ok,
-		   StateName :: atom(),
-		   StateData :: term(),
-		   timeout() | hibernate} |
-		  {stop, Reason :: term()} | ignore.
+                  {ok, StateName :: atom(), StateData :: term()} |
+                  {ok,
+                   StateName :: atom(),
+                   StateData :: term(),
+                   timeout() | hibernate} |
+                  {stop, Reason :: term()} | ignore.
 init(_Args) ->
     ignore.
 !>)dnl
@@ -53,11 +53,11 @@ ifdef(<!SU!>,<!%% invoked by
 %% supervise.
 %%
 -spec init(Args :: term()) ->
-		  {ok, {{RestartStrategy :: strategy(),
-			 MaxR :: non_neg_integer(),
-			 MaxT :: non_neg_integer()},
-			[ChildSpec :: child_spec()]}} |
-		  ignore.
+                  {ok, {{RestartStrategy :: strategy(),
+                         MaxR :: non_neg_integer(),
+                         MaxT :: non_neg_integer()},
+                        [ChildSpec :: child_spec()]}} |
+                  ignore.
 init(_Args) ->
     {ok, {{one_for_one, 5, 10}, []}}.
 !>)dnl
@@ -69,9 +69,9 @@ ifdef(<!SB!>,<!%% invoked by
 %% supervisor_bridge server process.
 %%
 -spec init(Args :: term()) ->
-		  {ok, Pid :: pid(), State :: term()} |
-		  ignore |
-		  {error, Error :: term()}.
+                  {ok, Pid :: pid(), State :: term()} |
+                  ignore |
+                  {error, Error :: term()}.
 init(_Args) ->
     ignore.
 !>)dnl

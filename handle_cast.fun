@@ -6,7 +6,7 @@ ifdef(<!SE!>,<!%% invoked by
 %% reply.
 %%
 -spec handle_cast(Request :: term(),
-		  State :: term()) ->
+                  State :: term()) ->
                          {noreply, NewState :: term()} |
                          {noreply, NewState :: term(), timeout() | hibernate} |
                          {stop, Reason :: term(), NewState :: term()}.

@@ -13,12 +13,12 @@
 %% @doc Standard application callback. Start the application's supervisor.
 %%
 -spec start(StartType :: normal |
-			 {takeover, Node :: node()} |
-			 {failover, Node :: node()},
-	    StartArgs :: term()) ->
-		   {ok, pid()} |
-		   {ok, pid(), State :: term()} |
-		   {error, Reason :: term()}.
+                         {takeover, Node :: node()} |
+                         {failover, Node :: node()},
+            StartArgs :: term()) ->
+                   {ok, pid()} |
+                   {ok, pid(), State :: term()} |
+                   {error, Reason :: term()}.
 start(_StartType, _StartArgs) ->
     sup:start_link().
 
@@ -29,7 +29,7 @@ start(_StartType, _StartArgs) ->
 %% @doc Standard application callback. Stop the application.
 %%
 -spec stop(State :: term()) ->
-		  term().
+                  term().
 stop(_State) ->
     ok.
 
@@ -46,12 +46,12 @@ stop(_State) ->
 %% the -export list above and delete it. ***
 %%
 -spec start_phase(Phase :: atom(),
-		  StartType :: normal |
-			       {takeover, Node :: node()} |
-			       {failover, Node :: node()},
-		  PhaseArgs :: term()) ->
-			 ok |
-			 {error, Reason :: term()}.
+                  StartType :: normal |
+                               {takeover, Node :: node()} |
+                               {failover, Node :: node()},
+                  PhaseArgs :: term()) ->
+                         ok |
+                         {error, Reason :: term()}.
 start_phase(_Phase, _StartType, _PhaseArgs) ->
     ok.
 
@@ -66,7 +66,7 @@ start_phase(_Phase, _StartType, _PhaseArgs) ->
 %% the -export list above and delete it. ***
 %%
 -spec prep_stop(State :: term()) ->
-		       NewState :: term().
+                       NewState :: term().
 prep_stop(State) ->
     State.
 
@@ -80,9 +80,9 @@ prep_stop(State) ->
 %% the -export list above and delete it. ***
 %%
 -spec config_change(Changed :: [{Par :: atom(), Val :: term()}],
-		    New :: [{Par :: atom(), Val :: term()}],
-		    Removed :: [Par :: atom()]) ->
-			   ok.
+                    New :: [{Par :: atom(), Val :: term()}],
+                    Removed :: [Par :: atom()]) ->
+                           ok.
 config_change(_Changed, _New, _Remove) ->
     ok.
 

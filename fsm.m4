@@ -10,24 +10,24 @@
 %%% required callbacks
 
 -type result() ::
-	{next_state, NextStateName :: atom(), NewStateData :: term()} |
-	{next_state,
-	 NextStateName :: atom(),
-	 NewStateData :: term(),
-	 timeout() | hibernate} |
-	{stop, Reason :: term(), NewStateData :: term()}.
+        {next_state, NextStateName :: atom(), NewStateData :: term()} |
+        {next_state,
+         NextStateName :: atom(),
+         NewStateData :: term(),
+         timeout() | hibernate} |
+        {stop, Reason :: term(), NewStateData :: term()}.
 -type sync_result() ::
-	result() |
-	{reply,
-	 Reply :: term(),
-	 NextStateName :: atom(),
-	 NewStateData :: term()} |
-	{reply,
-	 Reply :: term(),
-	 NextStateName :: atom(),
-	 NewStateData :: term(),
-	 timeout() | hibernate} |
-	{stop, Reason :: term(), Reply :: term(), NewStateData :: term()}.
+        result() |
+        {reply,
+         Reply :: term(),
+         NextStateName :: atom(),
+         NewStateData :: term()} |
+        {reply,
+         Reply :: term(),
+         NextStateName :: atom(),
+         NewStateData :: term(),
+         timeout() | hibernate} |
+        {stop, Reason :: term(), Reply :: term(), NewStateData :: term()}.
 
 include(init.fun)
 include(handle_event.fun)

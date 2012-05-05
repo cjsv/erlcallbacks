@@ -13,9 +13,9 @@
 %% supervisor_bridge server process.
 %%
 -spec init(Args :: term()) ->
-		  {ok, Pid :: pid(), State :: term()} |
-		  ignore |
-		  {error, Error :: term()}.
+                  {ok, Pid :: pid(), State :: term()} |
+                  ignore |
+                  {error, Error :: term()}.
 init(_Args) ->
     ignore.
 
@@ -25,8 +25,8 @@ init(_Args) ->
 %% @doc Standard supervisor_bridge callback. Clean up State before stopping.
 %%
 -spec terminate(Reason :: shutdown | term(),
-		State :: term()) ->
-		       Ignored :: term().
+                State :: term()) ->
+                       Ignored :: term().
 terminate(_Reason, _State) ->
     ok.
 

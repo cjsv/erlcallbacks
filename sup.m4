@@ -7,7 +7,7 @@
 %%% helper macro
 
 -<!define!>(CHILD(Mod, Type),
-	{Mod, {Mod, start_link, []}, permanent, 5000, Type, [Mod]}).
+        {Mod, {Mod, start_link, []}, permanent, 5000, Type, [Mod]}).
 
 %%% required callback
 
@@ -24,9 +24,9 @@
                        Type :: worker(),
                        Modules :: modules()}.
 -type strategy() :: one_for_all |
-		    one_for_one |
-		    rest_for_one |
-		    simple_one_for_one.
+                    one_for_one |
+                    rest_for_one |
+                    simple_one_for_one.
 
 include(init.fun)
 %%% supervisor api

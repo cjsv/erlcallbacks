@@ -9,7 +9,7 @@ ifdef(<!AP!>,<!%% invoked by
 %% the -export list above and delete it. ***
 %%
 -spec prep_stop(State :: term()) ->
-		       NewState :: term().
+                       NewState :: term().
 prep_stop(State) ->
     State.
 !>)dnl
