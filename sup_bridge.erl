@@ -30,4 +30,4 @@ init(_Args) ->
 terminate(_Reason, _State) ->
     ok.
 
-%%% implementation
+%%% functions internal to your implementation

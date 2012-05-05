@@ -2,7 +2,7 @@
 
 -behaviour(supervisor).
 -export([init/1]). % required
--export([start_link/0]). % implementation
+-export([start_link/0]). % supervisor api
 
 %%% helper macro
 
@@ -44,7 +44,7 @@
 init(_Args) ->
     {ok, {{one_for_one, 5, 10}, []}}.
 
-%%% implementation
+%%% supervisor api
 
 %%
 %% @doc API suggested in OTP Design Principles User's Guide to start
@@ -60,3 +60,5 @@ init(_Args) ->
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
+
+%%% functions internal to your implementation

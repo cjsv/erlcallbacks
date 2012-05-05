@@ -126,7 +126,7 @@ code_change(_OldVsn, State, _Extra) ->
 format_status(_Opt, [_PDict, _State]) ->
     status.
 
-%%% get_event api
+%%% gen_event api
 
 %%
 %% @doc API suggested in OTP Design Principles User's Guide to start
