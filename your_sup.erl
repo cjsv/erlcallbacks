@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_sup).
 
 -behaviour(supervisor).
@@ -56,7 +56,7 @@ init(_Args) ->
                         ignore |
                         {error,
                          Error :: {already_started, Pid :: pid()} |
-                                  shudown |
+                                  shutdown |
                                   term()}.
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).

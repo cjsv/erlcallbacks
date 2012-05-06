@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_fsm).
 
 -behaviour(gen_fsm).

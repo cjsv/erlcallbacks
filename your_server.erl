@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_server).
 
 -behaviour(gen_server).
@@ -95,7 +95,8 @@ terminate(_Reason, _State) ->
 -spec code_change(OldVsn :: (term() | {down, term()}),
                   State :: term(),
                   Extra :: term()) ->
-                         {ok, NewState :: term()} | {error, Reason :: term()}.
+                         {ok, NewState :: term()} |
+                         {error, Reason :: term()}.
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 

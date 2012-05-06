@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_sup_bridge).
 
 -behaviour(supervisor_bridge).
