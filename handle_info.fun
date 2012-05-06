@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %%
 %% @doc Standard gen_event callback. Handle non-event information.
@@ -23,7 +24,8 @@ ifdef(<!FS!>,<!%% invoked by
                   StateName :: atom(),
                   StateData :: term()) ->
                          Result :: result().
-handle_info(_Info, _StateName, _State) -> result.
+handle_info(_Info, _StateName, State) ->
+    {stop, unimplemented, State}.
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
 %% (gen_server:dispatch)

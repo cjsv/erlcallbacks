@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %% gen_event:notify, gen_event:sync_notify
 %%
@@ -30,5 +31,5 @@ ifdef(<!FS!>,<!
                    StateData :: term()) ->
                           Result :: result().
 handle_event(_Event, _StateName, _State) ->
-    result.
+    {stop, unimplemented, State}.
 !>)dnl

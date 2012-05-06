@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %% gen_event:add_handler, gen_event:add_sup_handler
 %% gen_event:swap_handler, gen_event:swap_sup_handler
@@ -26,7 +27,8 @@ ifdef(<!FS!>,<!%% invoked by
                    StateName :: atom(),
                    StateData :: term(),
                    timeout() | hibernate} |
-                  {stop, Reason :: term()} | ignore.
+                  {stop, Reason :: term()} |
+                  ignore.
 init(_Args) ->
     ignore.
 !>)dnl

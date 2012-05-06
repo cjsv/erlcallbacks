@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!AP!>,<!%% invoked by
 %% (application_starter:run_the_phase)
 %%
@@ -6,7 +7,7 @@ ifdef(<!AP!>,<!%% invoked by
 %% order.
 %%
 %% *** If you don't want to use this callback, remove its name from
-%% the -export list above and delete it. ***
+%% the -export list above and delete this -spec and function. ***
 %%
 -spec start_phase(Phase :: atom(),
                   StartType :: normal |

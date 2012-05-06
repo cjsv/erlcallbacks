@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!AP!>,<!%% invoked by
 %% application:stop
 %% (application_master:loop_it)

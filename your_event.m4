@@ -1,4 +1,5 @@
--module(event).changequote(<!,!>)define(EV,1)
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_event).changequote(<!,!>)define(EV,1)
 
 -behaviour(gen_event).
 -export([init/1,handle_event/2,handle_call/2,handle_info/2]). % required

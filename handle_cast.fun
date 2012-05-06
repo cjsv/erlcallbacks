@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!SE!>,<!%% invoked by
 %% gen_server:cast, gen_server:abcast
 %% (gen_server:dispatch)

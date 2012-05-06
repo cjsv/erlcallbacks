@@ -1,9 +1,12 @@
-FILES	=	app event fsm server sup sup_bridge
+FILES	=	your_app your_event your_fsm your_server your_sup \
+		your_sup_bridge
 
 all	:	$(FILES:%=%.erl)
 
 .SUFFIXES:
 .SUFFIXES:	.erl .m4
 
-%.erl	:	%.m4
+$(FILES:%=%.erl): %.erl: %.m4
 		m4 $< > $@
+
+$(FILES:%=%.erl): %.erl: *.fun

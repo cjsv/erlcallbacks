@@ -1,4 +1,5 @@
--module(sup).changequote(<!,!>)define(SU,1)
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_sup).changequote(<!,!>)define(SU,1)
 
 -behaviour(supervisor).
 -export([init/1]). % required

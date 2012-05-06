@@ -1,3 +1,4 @@
+ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %% (gen_event:system_code_change)
 %%

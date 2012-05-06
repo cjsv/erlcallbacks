@@ -1,4 +1,5 @@
--module(server).changequote(<!,!>)define(SE,1)
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_server).changequote(<!,!>)define(SE,1)
 
 -behaviour(gen_server).
 -export([init/1,handle_call/3,handle_cast/2,handle_info/2]). % required
