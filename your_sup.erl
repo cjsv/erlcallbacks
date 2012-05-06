@@ -48,7 +48,7 @@ init(_Args) ->
 %%% supervisor api
 
 %%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this supervisor process.
 %%
 -spec start_link() ->

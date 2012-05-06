@@ -175,7 +175,7 @@ format_status(_Opt, [_PDict, StateData]) ->
 %%% gen_fsm api
 
 %%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_fsm process.
 %%
 -spec start_link() ->

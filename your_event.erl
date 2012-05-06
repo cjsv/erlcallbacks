@@ -131,7 +131,7 @@ format_status(_Opt, [_PDict, State]) ->
 %%% gen_event api
 
 %%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_event process.
 %%
 -spec start_link() ->

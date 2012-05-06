@@ -122,7 +122,7 @@ format_status(_Opt, [_PDict, State]) ->
 %%% gen_server api
 
 %%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_server process.
 %%
 -spec start_link() ->
