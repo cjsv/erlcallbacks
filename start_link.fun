@@ -1,6 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_event process.
 %%
 -spec start_link() ->
@@ -12,7 +12,7 @@ start_link() ->
     gen_event:start_link({local, ?MODULE}, ?MODULE, [], []).
 !>)dnl
 ifdef(<!FS!>,<!%%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_fsm process.
 %%
 -spec start_link() ->
@@ -24,7 +24,7 @@ start_link() ->
     gen_fsm:start_link({local, ?MODULE}, ?MODULE, [], []).
 !>)dnl
 ifdef(<!SE!>,<!%%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_server process.
 %%
 -spec start_link() ->
@@ -36,7 +36,7 @@ start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 !>)dnl
 ifdef(<!SU!>,<!%%
-%% @doc API suggested in OTP Design Principles User's Guide to start
+%% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this supervisor process.
 %%
 -spec start_link() ->
