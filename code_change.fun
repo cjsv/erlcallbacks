@@ -35,7 +35,8 @@ ifdef(<!SE!>,<!%% invoked by
 -spec code_change(OldVsn :: (term() | {down, term()}),
                   State :: term(),
                   Extra :: term()) ->
-                         {ok, NewState :: term()} | {error, Reason :: term()}.
+                         {ok, NewState :: term()} |
+                         {error, Reason :: term()}.
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 !>)dnl

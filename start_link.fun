@@ -44,7 +44,7 @@ ifdef(<!SU!>,<!%%
                         ignore |
                         {error,
                          Error :: {already_started, Pid :: pid()} |
-                                  shudown |
+                                  shutdown |
                                   term()}.
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
