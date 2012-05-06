@@ -1,4 +1,5 @@
--module(sup).
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_sup).
 
 -behaviour(supervisor).
 -export([init/1]). % required

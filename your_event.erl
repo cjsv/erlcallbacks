@@ -1,4 +1,5 @@
--module(event).
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_event).
 
 -behaviour(gen_event).
 -export([init/1,handle_event/2,handle_call/2,handle_info/2]). % required
@@ -116,15 +117,16 @@ code_change(_OldVsn, State, _Extra) ->
 %% @doc Standard (optional) gen_event callback. Format the process'
 %% dictionary and state for output.
 %%
-%% *** If you don't want to use this callback, remove its name from
-%% the -export list above and delete it. ***
+%% *** If you want to use the default function instead of this
+%% callback, remove format_status/2 from the -export list above and
+%% delete this -spec and function. ***
 %%
 -spec format_status(Opt :: normal | terminate,
                     [{PDict :: [{Key :: atom(), Value :: term()}],
-                      StateData :: term()}]) ->
+                      State :: term()}]) ->
                            Status :: term().
-format_status(_Opt, [_PDict, _State]) ->
-    status.
+format_status(_Opt, [_PDict, State]) ->
+    [{data, [{"State", State}]}].
 
 %%% gen_event api
 

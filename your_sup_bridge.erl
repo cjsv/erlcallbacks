@@ -1,4 +1,5 @@
--module(sup_bridge).
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_sup_bridge).
 
 -behaviour(supervisor_bridge).
 -export([init/1,terminate/2]). % required

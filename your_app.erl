@@ -1,8 +1,10 @@
--module(app).
+%% -*-mode:erlang; indent-tabs-mode: nil-*-
+-module(your_app).
 
 -behaviour(application).
 -export([start/2,stop/1]). % required
 -export([start_phase/3,prep_stop/1,config_change/3]). % optional
+-export([start/0]). % application api
 
 %%% required callbacks
 
@@ -12,6 +14,9 @@
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%
+%% *** Change your_sup below to the name of your supervisor callback
+%% module. ***
+%%
 -spec start(StartType :: normal |
                          {takeover, Node :: node()} |
                          {failover, Node :: node()},
@@ -20,7 +25,7 @@
                    {ok, pid(), State :: term()} |
                    {error, Reason :: term()}.
 start(_StartType, _StartArgs) ->
-    sup:start_link().
+    your_sup:start_link().
 
 %% invoked by
 %% application:stop
@@ -43,7 +48,7 @@ stop(_State) ->
 %% order.
 %%
 %% *** If you don't want to use this callback, remove its name from
-%% the -export list above and delete it. ***
+%% the -export list above and delete this -spec and function. ***
 %%
 -spec start_phase(Phase :: atom(),
                   StartType :: normal |
@@ -63,7 +68,7 @@ start_phase(_Phase, _StartType, _PhaseArgs) ->
 %% application, perhaps to persist state.
 %%
 %% *** If you don't want to use this callback, remove its name from
-%% the -export list above and delete it. ***
+%% the -export list above and delete this -spec and function. ***
 %%
 -spec prep_stop(State :: term()) ->
                        NewState :: term().
@@ -77,7 +82,7 @@ prep_stop(State) ->
 %% configuration has changed.
 %%
 %% *** If you don't want to use this callback, remove its name from
-%% the -export list above and delete it. ***
+%% the -export list above and delete this -spec and function. ***
 %%
 -spec config_change(Changed :: [{Par :: atom(), Val :: term()}],
                     New :: [{Par :: atom(), Val :: term()}],
@@ -85,5 +90,16 @@ prep_stop(State) ->
                            ok.
 config_change(_Changed, _New, _Remove) ->
     ok.
+
+%%% application api
+
+%%
+%% @doc API to start application.
+%%
+-spec start() ->
+                   ok |
+                   {error, Reason :: term()}.
+start() ->
+    application:start(?MODULE).
 
 %%% functions internal to your implementation
