@@ -33,5 +33,4 @@ include(init.fun)
 %%% supervisor api
 
 include(start_link.fun)
-
 %%% functions internal to your implementation
