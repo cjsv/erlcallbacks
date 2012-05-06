@@ -1,4 +1,4 @@
-ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
+ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!FS!>,<!%% invoked by
 %% gen_fsm:sync_send_all_state_event
 %% (gen_fsm:dispatch)

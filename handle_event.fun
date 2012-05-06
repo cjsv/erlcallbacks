@@ -1,4 +1,4 @@
-ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
+ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %% gen_event:notify, gen_event:sync_notify
 %%

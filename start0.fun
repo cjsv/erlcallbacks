@@ -1,4 +1,4 @@
-ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
+ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!AP!>,<!%%
 %% @doc API to start application.
 %%

@@ -1,4 +1,4 @@
-ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
+ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
 %% gen_event:add_handler, gen_event:add_sup_handler
 %% gen_event:swap_handler, gen_event:swap_sup_handler

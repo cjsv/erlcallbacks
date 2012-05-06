@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_sup).changequote(<!,!>)define(SU,1)
 
 -behaviour(supervisor).

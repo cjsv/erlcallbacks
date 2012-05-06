@@ -1,4 +1,4 @@
-ifdef(NOTDEF, -*-mode:erlang; indent-tabs-mode: nil-*-)dnl
+ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%%
 %% @doc API suggested in OTP Design Principles User's Guide to start
 %% this gen_event process.

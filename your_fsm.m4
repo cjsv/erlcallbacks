@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_fsm).changequote(<!,!>)define(FS,1)
 
 -behaviour(gen_fsm).

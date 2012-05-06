@@ -1,4 +1,4 @@
-%% -*-mode:erlang; indent-tabs-mode: nil-*-
+%% -*- mode: erlang; indent-tabs-mode: nil -*-
 -module(your_event).changequote(<!,!>)define(EV,1)
 
 -behaviour(gen_event).
