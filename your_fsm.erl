@@ -2,13 +2,13 @@
 -module(your_fsm).
 
 -behaviour(gen_fsm).
--export([init/1,handle_event/3,handle_sync_event/4,handle_info/3]). % required
--export([terminate/3,code_change/4]). % required
-%-export([StateName/2,StateName/3]). % required per statename
--export([format_status/2]). % optional
+-export([init/1,handle_event/3,handle_sync_event/4]). % gen_fsm required
+-export([handle_info/3,terminate/3,code_change/4]). % gen_fsm required
+%-export([StateName/2,StateName/3]). % gen_fsm required per statename
+-export([format_status/2]). % gen_fsm optional
 -export([start_link/0]). % gen_fsm api
 
-%%% required callbacks
+%%% gen_fsm required callbacks
 
 -type result() ::
         {next_state, NextStateName :: atom(), NewStateData :: term()} |
@@ -153,7 +153,7 @@ StateName(_Event, State) ->
 StateName(_Event, _From, State) ->
     {stop, unimplemented, State}.
 
-%%% optional callback
+%%% gen_fsm optional callback
 
 %% invoked by
 %% (gen_fsm:format_status,gen_fsm_terminate)

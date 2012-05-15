@@ -2,12 +2,12 @@
 -module(your_event).
 
 -behaviour(gen_event).
--export([init/1,handle_event/2,handle_call/2,handle_info/2]). % required
--export([erminate/2,code_change/3]). % required
--export([format_status/2]). % optional
+-export([init/1,handle_event/2,handle_call/2]). % gen_event required
+-export([handle_info/2,terminate/2,code_change/3]). % gen_event required
+-export([format_status/2]). % gen_event optional
 -export([start_link/0]). % gen_event api
 
-%%% required callbacks
+%%% gen_event required callbacks
 
 %% invoked by
 %% gen_event:add_handler, gen_event:add_sup_handler
@@ -109,7 +109,7 @@ terminate(_Args, _State) ->
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 
-%%% optional callback
+%%% gen_event optional callback
 
 %% invoked by
 %% (gen_event:format_status,gen_event:report_error)

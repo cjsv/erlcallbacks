@@ -2,12 +2,12 @@
 -module(your_server).
 
 -behaviour(gen_server).
--export([init/1,handle_call/3,handle_cast/2,handle_info/2]). % required
--export([terminate/2,code_change/3]). % required
-%%-export([format_status/2]). % optional
+-export([init/1,handle_call/3,handle_cast/2]). % gen_server required
+-export([handle_info/2,terminate/2,code_change/3]). % gen_server required
+%%-export([format_status/2]). % gen_server optional
 -export([start_link/0]). % gen_server api
 
-%%% required callbacks
+%%% gen_server required callbacks
 
 %% invoked by
 %% gen_server:start_link, gen_server:start
@@ -100,7 +100,7 @@ terminate(_Reason, _State) ->
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 
-%%% optional callback
+%%% gen_server optional callback
 
 %% invoked by
 %% (gen_server:format_status,gen_server:terminate)

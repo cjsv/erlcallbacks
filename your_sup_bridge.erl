@@ -2,9 +2,9 @@
 -module(your_sup_bridge).
 
 -behaviour(supervisor_bridge).
--export([init/1,terminate/2]). % required
+-export([init/1,terminate/2]). % supervisor_bridge required
 
-%%% required callbacks
+%%% supervisor_bridge required callbacks
 
 %% invoked by
 %% supervisor_bridge:start_link

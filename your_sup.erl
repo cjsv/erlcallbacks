@@ -2,15 +2,15 @@
 -module(your_sup).
 
 -behaviour(supervisor).
--export([init/1]). % required
+-export([init/1]). % supervisor required
 -export([start_link/0]). % supervisor api
 
-%%% helper macro
+%%% supervisor helper macro
 
 -define(CHILD(Mod, Type),
         {Mod, {Mod, start_link, []}, permanent, 5000, Type, [Mod]}).
 
-%%% required callback
+%%% supervisor required callback
 
 -type child_id() :: term().
 -type mfargs()   :: {M :: module(), F :: atom(), A :: [term()] | undefined}.
