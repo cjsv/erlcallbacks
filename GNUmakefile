@@ -1,5 +1,5 @@
-FILES	=	your_app your_event your_fsm your_server your_sup \
-		your_sup_bridge
+FILES	=	your_app your_app_sup your_event your_fsm your_server \
+		your_sup your_sup_bridge
 
 all	:	$(FILES:%=%.erl)
 
