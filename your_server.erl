@@ -2,8 +2,8 @@
 -module(your_server).
 
 -behaviour(gen_server).
--export([init/1,handle_call/3,handle_cast/2]). % gen_server required
--export([handle_info/2,terminate/2,code_change/3]). % gen_server required
+-export([init/1, handle_call/3, handle_cast/2]). % gen_server required
+-export([handle_info/2, terminate/2, code_change/3]). % gen_server required
 %%-export([format_status/2]). % gen_server optional
 -export([start_link/0]). % gen_server api
 
@@ -103,7 +103,7 @@ code_change(_OldVsn, State, _Extra) ->
 %%% gen_server optional callback
 
 %% invoked by
-%% (gen_server:format_status,gen_server:terminate)
+%% (gen_server:format_status, gen_server:terminate)
 %%
 %% @doc Standard (optional) gen_server callback. Format the process'
 %% dictionary and state for output.

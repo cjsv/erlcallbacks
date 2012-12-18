@@ -2,9 +2,9 @@
 -module(your_fsm).
 
 -behaviour(gen_fsm).
--export([init/1,handle_event/3,handle_sync_event/4]). % gen_fsm required
--export([handle_info/3,terminate/3,code_change/4]). % gen_fsm required
-%-export([StateName/2,StateName/3]). % gen_fsm required per statename
+-export([init/1, handle_event/3, handle_sync_event/4]). % gen_fsm required
+-export([handle_info/3, terminate/3, code_change/4]). % gen_fsm required
+%-export([StateName/2, StateName/3]). % gen_fsm required per statename
 -export([format_status/2]). % gen_fsm optional
 -export([start_link/0]). % gen_fsm api
 
@@ -156,7 +156,7 @@ StateName(_Event, _From, State) ->
 %%% gen_fsm optional callback
 
 %% invoked by
-%% (gen_fsm:format_status,gen_fsm_terminate)
+%% (gen_fsm:format_status, gen_fsm_terminate)
 %%
 %% @doc Standard (optional) gen_fsm callback. Format the process'
 %% dictionary and state for output.

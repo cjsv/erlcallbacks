@@ -3,9 +3,9 @@
 
 -behaviour(application).
 -behaviour(supervisor).
--export([start/2,stop/1]). % application required
+-export([start/2, stop/1]). % application required
 -export([init/1]). % supervisor required
--export([start_phase/3,prep_stop/1,config_change/3]). % application optional
+-export([start_phase/3, prep_stop/1, config_change/3]). % application optional
 -export([start/0]). % application api
 -export([start_link/0]). % supervisor api
 
@@ -18,7 +18,7 @@
 
 %% invoked by
 %% application:start
-%% (application_master:start_it_old,application_master:start_supervisor)
+%% (application_master:start_it_old, application_master:start_supervisor)
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%
@@ -67,7 +67,7 @@ stop(_State) ->
 
 %% invoked by
 %% supervisor:start_link
-%% (supervisor:init,supervisor:code_change)
+%% (supervisor:init, supervisor:code_change)
 %%
 %% @doc Standard supervisor callback. Specify the child processes to
 %% supervise.

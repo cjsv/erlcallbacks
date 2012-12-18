@@ -2,8 +2,8 @@
 -module(your_event).
 
 -behaviour(gen_event).
--export([init/1,handle_event/2,handle_call/2]). % gen_event required
--export([handle_info/2,terminate/2,code_change/3]). % gen_event required
+-export([init/1, handle_event/2, handle_call/2]). % gen_event required
+-export([handle_info/2, terminate/2, code_change/3]). % gen_event required
 -export([format_status/2]). % gen_event optional
 -export([start_link/0]). % gen_event api
 
@@ -112,7 +112,7 @@ code_change(_OldVsn, State, _Extra) ->
 %%% gen_event optional callback
 
 %% invoked by
-%% (gen_event:format_status,gen_event:report_error)
+%% (gen_event:format_status, gen_event:report_error)
 %%
 %% @doc Standard (optional) gen_event callback. Format the process'
 %% dictionary and state for output.

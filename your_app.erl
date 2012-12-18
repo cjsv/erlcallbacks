@@ -2,15 +2,15 @@
 -module(your_app).
 
 -behaviour(application).
--export([start/2,stop/1]). % application required
--export([start_phase/3,prep_stop/1,config_change/3]). % application optional
+-export([start/2, stop/1]). % application required
+-export([start_phase/3, prep_stop/1, config_change/3]). % application optional
 -export([start/0]). % application api
 
 %%% application required callbacks
 
 %% invoked by
 %% application:start
-%% (application_master:start_it_old,application_master:start_supervisor)
+%% (application_master:start_it_old, application_master:start_supervisor)
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%

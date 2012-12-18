@@ -31,7 +31,7 @@
 
 %% invoked by
 %% supervisor:start_link
-%% (supervisor:init,supervisor:code_change)
+%% (supervisor:init, supervisor:code_change)
 %%
 %% @doc Standard supervisor callback. Specify the child processes to
 %% supervise.
