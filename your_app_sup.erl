@@ -17,8 +17,8 @@
 %%% application required callbacks
 
 %% invoked by
-%% application:start
-%% (application_master:start_it_old, application_master:start_supervisor)
+%% application:start/1
+%% (application_master:start_it_old/4, application_master:start_supervisor/3)
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%
@@ -36,8 +36,8 @@ start(_StartType, _StartArgs) ->
     your_sup:start_link().
 
 %% invoked by
-%% application:stop
-%% (application_master:loop_it)
+%% application:stop/1
+%% (application_master:loop_it/4)
 %%
 %% @doc Standard application callback. Stop the application.
 %%
@@ -66,8 +66,8 @@ stop(_State) ->
                     simple_one_for_one.
 
 %% invoked by
-%% supervisor:start_link
-%% (supervisor:init, supervisor:code_change)
+%% supervisor:start_link/2,3
+%% (supervisor:init/1, supervisor:code_change/3)
 %%
 %% @doc Standard supervisor callback. Specify the child processes to
 %% supervise.
@@ -84,7 +84,7 @@ init(_Args) ->
 %%% application optional callbacks
 
 %% invoked by
-%% (application_starter:run_the_phase)
+%% (application_starter:run_the_phase/4)
 %%
 %% @doc Standard (optional) application callback. Execute the
 %% specified start phase, perhaps ensuring dependencies start in
@@ -104,8 +104,8 @@ start_phase(_Phase, _StartType, _PhaseArgs) ->
     ok.
 
 %% invoked by
-%% application:stop
-%% (application_master:prep_stop)
+%% application:stop/1
+%% (application_master:prep_stop/2)
 %%
 %% @doc Standard (optional) application callback. Prepare to stop the
 %% application, perhaps to persist state.
@@ -119,7 +119,7 @@ prep_stop(State) ->
     State.
 
 %% invoked by
-%% (application_controller:do_config_change)
+%% (application_controller:do_config_change/2)
 %%
 %% @doc Standard (optional) application callback. The application's
 %% configuration has changed.
@@ -136,8 +136,9 @@ config_change(_Changed, _New, _Remove) ->
 
 %%% application api
 
+%% invoked by you
 %%
-%% @doc API to start application.
+%% @doc API to start application. See also your:start/0.
 %%
 -spec start() ->
                    ok |
@@ -147,6 +148,7 @@ start() ->
 
 %%% supervisor api
 
+%% invoked by you
 %%
 %% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this supervisor process.

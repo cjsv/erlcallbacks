@@ -10,8 +10,8 @@
 %%% gen_server required callbacks
 
 %% invoked by
-%% gen_server:start_link, gen_server:start
-%% (gen_server:init_it)
+%% gen_server:start_link/3,4, gen_server:start/3,4
+%% (gen_server:init_it/6)
 %%
 %% @doc Standard gen_server callback. Initial state for the gen_server
 %% server process.
@@ -25,8 +25,8 @@ init(Args) ->
     {ok, Args}.
 
 %% invoked by
-%% gen_server:call, gen_server:multi_call
-%% (gen_server:handle_msg)
+%% gen_server:call/2,3, gen_server:multi_call/2,3,4
+%% (gen_server:handle_msg5/6)
 %%
 %% @doc Standard gen_server callback. Handle synchronous requests.
 %%
@@ -49,8 +49,8 @@ handle_call(_Request, _From, State) ->
     {noreply, State}.
 
 %% invoked by
-%% gen_server:cast, gen_server:abcast
-%% (gen_server:dispatch)
+%% gen_server:cast/2, gen_server:abcast/2
+%% (gen_server:dispatch/3)
 %%
 %% @doc Standard gen_server callback. Handle a request not requiring a
 %% reply.
@@ -64,7 +64,7 @@ handle_cast(_Request, State) ->
     {noreply, State}.
 
 %% invoked by
-%% (gen_server:dispatch)
+%% (gen_server:dispatch/3)
 %%
 %% @doc Standard gen_server callback. Handle non-request information.
 %%
@@ -76,7 +76,7 @@ handle_info(_Info, State) ->
     {noreply, State}.
 
 %% invoked by
-%% (gen_server:terminate)
+%% (gen_server:terminate/6)
 %%
 %% @doc Standard gen_server callback. Clean up State before stopping.
 %%
@@ -87,7 +87,7 @@ terminate(_Reason, _State) ->
     ok.
 
 %% invoked by
-%% (gen_server:system_code_change)
+%% (gen_server:system_code_change/4)
 %%
 %% @doc Standard gen_server callback. Change State as a result of a code
 %% change during release upgrade or downgrade.
@@ -103,7 +103,7 @@ code_change(_OldVsn, State, _Extra) ->
 %%% gen_server optional callback
 
 %% invoked by
-%% (gen_server:format_status, gen_server:terminate)
+%% (gen_server:format_status/2, gen_server:terminate/6)
 %%
 %% @doc Standard (optional) gen_server callback. Format the process'
 %% dictionary and state for output.
@@ -121,6 +121,7 @@ format_status(_Opt, [_PDict, State]) ->
 
 %%% gen_server api
 
+%% invoked by you
 %%
 %% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_server process.

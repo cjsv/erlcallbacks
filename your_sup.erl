@@ -30,8 +30,8 @@
                     simple_one_for_one.
 
 %% invoked by
-%% supervisor:start_link
-%% (supervisor:init, supervisor:code_change)
+%% supervisor:start_link/2,3
+%% (supervisor:init/1, supervisor:code_change/3)
 %%
 %% @doc Standard supervisor callback. Specify the child processes to
 %% supervise.
@@ -47,6 +47,7 @@ init(_Args) ->
 
 %%% supervisor api
 
+%% invoked by you
 %%
 %% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this supervisor process.

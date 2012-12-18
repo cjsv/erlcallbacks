@@ -10,9 +10,9 @@
 %%% gen_event required callbacks
 
 %% invoked by
-%% gen_event:add_handler, gen_event:add_sup_handler
-%% gen_event:swap_handler, gen_event:swap_sup_handler
-%% (gen_event:server_add_handler, gen_event:do_swap)
+%% gen_event:add_handler/3, gen_event:add_sup_handler/3,
+%% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
+%% (gen_event:server_add_handler/3, gen_event:do_swap/7)
 %%
 %% @doc Standard gen_event callback. Initial State for the gen_event
 %% server process.
@@ -25,7 +25,7 @@ init(_Args) ->
     {ok, nostate}.
 
 %% invoked by
-%% gen_event:notify, gen_event:sync_notify
+%% gen_event:notify/2, gen_event:sync_notify/2
 %%
 %% @doc Standard gen_event callback. A specified Event has occurred.
 %%
@@ -43,8 +43,8 @@ handle_event(_Event, State) ->
     {ok, State}.
 
 %% invoked by
-%% gen_event:call
-%% (gen_event:server_call_update)
+%% gen_event:call/3,4
+%% (gen_event:server_call_update/3)
 %%
 %% @doc Standard gen_event callback. Handle synchronous requests.
 %%
@@ -63,6 +63,7 @@ handle_call(_Request, State) ->
     {ok, reply, State}.
 
 %% invoked by
+%% (gen_event:server_notify/4)
 %%
 %% @doc Standard gen_event callback. Handle non-event information.
 %%
@@ -79,9 +80,9 @@ handle_info(_Info, State) ->
     {ok, State}.
 
 %% invoked by
-%% gen_event:delete_handler, gen_event:stop
-%% gen_event:swap_handler, gen_event:swap_sup_handler
-%% (gen_event:do_terminate)
+%% gen_event:delete_handler/3, gen_event:stop/1
+%% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
+%% (gen_event:do_terminate/7)
 %%
 %% @doc Standard gen_event callback. Clean up State before stopping.
 %%
@@ -97,7 +98,7 @@ terminate(_Args, _State) ->
     ok.
 
 %% invoked by
-%% (gen_event:system_code_change)
+%% (gen_event:system_code_change/4)
 %%
 %% @doc Standard gen_event callback. Change State as a result of a code
 %% change during release upgrade or downgrade.
@@ -112,7 +113,7 @@ code_change(_OldVsn, State, _Extra) ->
 %%% gen_event optional callback
 
 %% invoked by
-%% (gen_event:format_status, gen_event:report_error)
+%% (gen_event:format_status/2, gen_event:report_error/5)
 %%
 %% @doc Standard (optional) gen_event callback. Format the process'
 %% dictionary and state for output.
@@ -130,6 +131,7 @@ format_status(_Opt, [_PDict, State]) ->
 
 %%% gen_event api
 
+%% invoked by you
 %%
 %% @doc API suggested in OTP Design Principles User's Guide. Start
 %% this gen_event process.
