@@ -1,6 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!AP!>,<!%% invoked by
-%% (application_starter:run_the_phase)
+%% (application_starter:run_the_phase/4)
 %%
 %% @doc Standard (optional) application callback. Execute the
 %% specified start phase, perhaps ensuring dependencies start in

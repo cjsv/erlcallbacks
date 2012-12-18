@@ -1,7 +1,7 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% gen_fsm:sync_send_all_state_event
-%% (gen_fsm:dispatch)
+%% gen_fsm:sync_send_all_state_event/3
+%% (gen_fsm:dispatch/4)
 %%
 %% @doc Standard gen_fsm callback. Similar to the StateName/3
 %% functions, except that the same handler is called regardless of the

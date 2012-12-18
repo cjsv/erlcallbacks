@@ -1,7 +1,7 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% gen_fsm:sync_send_event
-%% (gen_fsm:dispatch)
+%% gen_fsm:sync_send_event/2,3
+%% (gen_fsm:dispatch/4)
 %%
 %% Standard gen_fsm callback for each named state. When in the named
 %% state, handle the specified event synchronously and return a reply.

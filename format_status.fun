@@ -1,6 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
-%% (gen_event:format_status,gen_event:report_error)
+%% (gen_event:format_status/2, gen_event:report_error/5)
 %%
 %% @doc Standard (optional) gen_event callback. Format the process'
 %% dictionary and state for output.
@@ -17,7 +17,7 @@ format_status(_Opt, [_PDict, State]) ->
     [{data, [{"State", State}]}].
 !>)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% (gen_fsm:format_status,gen_fsm_terminate)
+%% (gen_fsm:format_status/2, gen_fsm:terminate/7)
 %%
 %% @doc Standard (optional) gen_fsm callback. Format the process'
 %% dictionary and state for output.
@@ -34,7 +34,7 @@ format_status(_Opt, [_PDict, StateData]) ->
     [{data, [{"StateData", StateData}]}].
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
-%% (gen_server:format_status,gen_server:terminate)
+%% (gen_server:format_status/2, gen_server:terminate/6)
 %%
 %% @doc Standard (optional) gen_server callback. Format the process'
 %% dictionary and state for output.

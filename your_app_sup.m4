@@ -3,9 +3,9 @@
 
 -behaviour(application).
 -behaviour(supervisor).
--export([start/2,stop/1]). % application required
+-export([start/2, stop/1]). % application required
 -export([init/1]). % supervisor required
--export([start_phase/3,prep_stop/1,config_change/3]). % application optional
+-export([start_phase/3, prep_stop/1, config_change/3]). % application optional
 -export([start/0]). % application api
 -export([start_link/0]). % supervisor api
 

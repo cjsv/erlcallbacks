@@ -1,6 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!AP!>,<!%% invoked by
-%% (application_controller:do_config_change)
+%% (application_controller:do_config_change/2)
 %%
 %% @doc Standard (optional) application callback. The application's
 %% configuration has changed.

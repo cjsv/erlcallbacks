@@ -1,8 +1,8 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
-%% gen_event:add_handler, gen_event:add_sup_handler
-%% gen_event:swap_handler, gen_event:swap_sup_handler
-%% (gen_event:server_add_handler, gen_event:do_swap)
+%% gen_event:add_handler/3, gen_event:add_sup_handler/3,
+%% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
+%% (gen_event:server_add_handler/3, gen_event:do_swap/7)
 %%
 %% @doc Standard gen_event callback. Initial State for the gen_event
 %% server process.
@@ -15,8 +15,8 @@ init(_Args) ->
     {ok, nostate}.
 !>)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% gen_fsm:start_link, gen_fsm:start
-%% (gen_fsm:init_it)
+%% gen_fsm:start_link/3,4, gen_fsm:start/3,4
+%% (gen_fsm:init_it/6)
 %%
 %% @doc Standard gen_fsm callback. Initial State for the gen_fsm
 %% server process.
@@ -33,8 +33,8 @@ init(_Args) ->
     ignore.
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
-%% gen_server:start_link, gen_server:start
-%% (gen_server:init_it)
+%% gen_server:start_link/3,4, gen_server:start/3,4
+%% (gen_server:init_it/6)
 %%
 %% @doc Standard gen_server callback. Initial state for the gen_server
 %% server process.
@@ -48,8 +48,8 @@ init(Args) ->
     {ok, Args}.
 !>)dnl
 ifdef(<!SU!>,<!%% invoked by
-%% supervisor:start_link
-%% (supervisor:init,supervisor:code_change)
+%% supervisor:start_link/2,3
+%% (supervisor:init/1, supervisor:code_change/3)
 %%
 %% @doc Standard supervisor callback. Specify the child processes to
 %% supervise.
@@ -64,8 +64,8 @@ init(_Args) ->
     {ok, {{one_for_one, 5, 10}, []}}.
 !>)dnl
 ifdef(<!SB!>,<!%% invoked by
-%% supervisor_bridge:start_link
-%% (supervisor_bridge:init)
+%% supervisor_bridge:start_link/2,3
+%% (supervisor_bridge:init/1)
 %%
 %% @doc Standard supervisor_bridge callback. Initial state for the
 %% supervisor_bridge server process.

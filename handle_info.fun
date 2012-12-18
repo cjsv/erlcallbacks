@@ -1,5 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
+%% (gen_event:server_notify/4)
 %%
 %% @doc Standard gen_event callback. Handle non-event information.
 %%
@@ -16,7 +17,7 @@ handle_info(_Info, State) ->
     {ok, State}.
 !>)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% (gen_fsm:dispatch)
+%% (gen_fsm:dispatch/4)
 %%
 %% @doc Standard gen_fsm callback. Handle non-request information.
 %%
@@ -28,7 +29,7 @@ handle_info(_Info, _StateName, State) ->
     {stop, unimplemented, State}.
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
-%% (gen_server:dispatch)
+%% (gen_server:dispatch/3)
 %%
 %% @doc Standard gen_server callback. Handle non-request information.
 %%

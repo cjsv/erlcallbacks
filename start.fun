@@ -1,7 +1,7 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!AP!>,<!%% invoked by
-%% application:start
-%% (application_master:start_it_old,application_master:start_supervisor)
+%% application:start/1
+%% (application_master:start_it_old/4, application_master:start_supervisor/3)
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%

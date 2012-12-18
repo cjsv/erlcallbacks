@@ -1,7 +1,7 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!AP!>,<!%% invoked by
-%% application:stop
-%% (application_master:prep_stop)
+%% application:stop/1
+%% (application_master:prep_stop/2)
 %%
 %% @doc Standard (optional) application callback. Prepare to stop the
 %% application, perhaps to persist state.

@@ -1,6 +1,6 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
-%% gen_event:notify, gen_event:sync_notify
+%% gen_event:notify/2, gen_event:sync_notify/2
 %%
 %% @doc Standard gen_event callback. A specified Event has occurred.
 %%
@@ -19,8 +19,8 @@ handle_event(_Event, State) ->
 !>)dnl
 ifdef(<!FS!>,<!
 %% invoked by
-%% gen_fsm:send_all_state_event
-%% (gen_fsm:dispatch)
+%% gen_fsm:send_all_state_event/2
+%% (gen_fsm:dispatch/4)
 %%
 %% @doc Standard gen_fsm callback. A specified Event has
 %% occurred. Similar to the StateName/2 functions, except that the

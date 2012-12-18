@@ -1,7 +1,7 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
-%% gen_event:call
-%% (gen_event:server_call_update)
+%% gen_event:call/3,4
+%% (gen_event:server_call_update/3)
 %%
 %% @doc Standard gen_event callback. Handle synchronous requests.
 %%
@@ -20,8 +20,8 @@ handle_call(_Request, State) ->
     {ok, reply, State}.
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
-%% gen_server:call, gen_server:multi_call
-%% (gen_server:handle_msg)
+%% gen_server:call/2,3, gen_server:multi_call/2,3,4
+%% (gen_server:handle_msg5/6)
 %%
 %% @doc Standard gen_server callback. Handle synchronous requests.
 %%

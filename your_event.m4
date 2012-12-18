@@ -2,8 +2,8 @@
 -module(your_event).changequote(<!,!>)define(EV,1)
 
 -behaviour(gen_event).
--export([init/1,handle_event/2,handle_call/2]). % gen_event required
--export([handle_info/2,terminate/2,code_change/3]). % gen_event required
+-export([init/1, handle_event/2, handle_call/2]). % gen_event required
+-export([handle_info/2, terminate/2, code_change/3]). % gen_event required
 -export([format_status/2]). % gen_event optional
 -export([start_link/0]). % gen_event api
 

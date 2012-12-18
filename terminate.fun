@@ -1,8 +1,8 @@
 ifdef(NOTDEF, -*- mode: erlang; indent-tabs-mode: nil -*-)dnl
 ifdef(<!EV!>,<!%% invoked by
-%% gen_event:delete_handler, gen_event:stop
-%% gen_event:swap_handler, gen_event:swap_sup_handler
-%% (gen_event:do_terminate)
+%% gen_event:delete_handler/3, gen_event:stop/1
+%% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
+%% (gen_event:do_terminate/7)
 %%
 %% @doc Standard gen_event callback. Clean up State before stopping.
 %%
@@ -18,7 +18,7 @@ terminate(_Args, _State) ->
     ok.
 !>)dnl
 ifdef(<!FS!>,<!%% invoked by
-%% (gen_fsm:terminate)
+%% (gen_fsm:terminate/7)
 %%
 %% @doc Standard gen_fsm callback. Clean up State before stopping.
 %%
@@ -30,7 +30,7 @@ terminate(_Reason, _StateName, _State) ->
     ok.
 !>)dnl
 ifdef(<!SE!>,<!%% invoked by
-%% (gen_server:terminate)
+%% (gen_server:terminate/6)
 %%
 %% @doc Standard gen_server callback. Clean up State before stopping.
 %%
@@ -41,7 +41,7 @@ terminate(_Reason, _State) ->
     ok.
 !>)dnl
 ifdef(<!SB!>,<!%% invoked by
-%% (supervisor_bridge:terminate_pid)
+%% (supervisor_bridge:terminate_pid/2)
 %%
 %% @doc Standard supervisor_bridge callback. Clean up State before stopping.
 %%
