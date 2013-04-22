@@ -4,7 +4,6 @@
 -behaviour(application).
 -export([start/2, stop/1]). % application required
 -export([start_phase/3, prep_stop/1, config_change/3]). % application optional
--export([start/0]). % application api
 
 %%% application required callbacks
 
@@ -90,17 +89,5 @@ prep_stop(State) ->
                            ok.
 config_change(_Changed, _New, _Remove) ->
     ok.
-
-%%% application api
-
-%% invoked by you
-%%
-%% @doc API to start application. See also yourapp:start/0.
-%%
--spec start() ->
-                   ok |
-                   {error, Reason :: term()}.
-start() ->
-    application:start(?MODULE).
 
 %%% functions internal to yourapp implementation
