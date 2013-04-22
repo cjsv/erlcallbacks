@@ -8,8 +8,8 @@
 
 %% invoked by you
 %%
-%% @doc Start the applications your application depends on, then start
-%% yours. See also yourapp_app:start/0.
+%% @doc Start the applications yourapp depends on, then start yourapp.
+%% See also yourapp_app:start/0.
 %%
 %% The standard OTP application startup mechanisms are invoked.
 %%
