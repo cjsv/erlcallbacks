@@ -27,7 +27,9 @@ start() ->
 %%
 %% The standard OTP application shutdown mechanisms are invoked.
 %%
--spec stop() -> ok | {error, Reason :: term()}.
+-spec stop() ->
+                  ok |
+                  {error, Reason :: term()}.
 stop() ->
     application:stop(?MODULE).
 
@@ -40,7 +42,8 @@ stop() ->
 %%
 %% @doc Ensures that an application depended on by your application is started.
 %%
--spec ensure_started(App:: atom()) -> ok.
+-spec ensure_started(App:: atom()) ->
+                            ok.
 ensure_started(App) ->
     case application:start(App) of
         ok ->
