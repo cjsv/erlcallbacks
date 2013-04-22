@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_app).
+-module(yourapp_app).
 
 -behaviour(application).
 -export([start/2, stop/1]). % application required
@@ -14,7 +14,7 @@
 %%
 %% @doc Standard application callback. Start the application's supervisor.
 %%
-%% *** Change your_sup below to the name of your supervisor callback
+%% *** Change yourapp_sup below to the name of your supervisor callback
 %% module. ***
 %%
 -spec start(StartType :: normal |
@@ -25,7 +25,7 @@
                    {ok, pid(), State :: term()} |
                    {error, Reason :: term()}.
 start(_StartType, _StartArgs) ->
-    your_sup:start_link().
+    yourapp_sup:start_link().
 
 %% invoked by
 %% application:stop/1
@@ -95,7 +95,7 @@ config_change(_Changed, _New, _Remove) ->
 
 %% invoked by you
 %%
-%% @doc API to start application. See also your:start/0.
+%% @doc API to start application. See also yourapp:start/0.
 %%
 -spec start() ->
                    ok |
@@ -103,4 +103,4 @@ config_change(_Changed, _New, _Remove) ->
 start() ->
     application:start(?MODULE).
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

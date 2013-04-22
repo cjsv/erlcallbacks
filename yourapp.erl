@@ -1,15 +1,15 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your).
+-module(yourapp).
 
 -export([start/0, stop/0]). % suggested api
-% add your client api functions
+% add yourapp client api functions
 
-%%% your api
+%%% yourapp api
 
 %% invoked by you
 %%
 %% @doc Start the applications your application depends on, then start
-%% yours. See also your_app:start/0.
+%% yours. See also yourapp_app:start/0.
 %%
 %% The standard OTP application startup mechanisms are invoked.
 %%
@@ -23,7 +23,7 @@ start() ->
 
 %% invoked by you
 %%
-%% @doc Stop your application.
+%% @doc Stop yourapp application.
 %%
 %% The standard OTP application shutdown mechanisms are invoked.
 %%
@@ -31,12 +31,12 @@ start() ->
 stop() ->
     application:stop(?MODULE).
 
-% add your client api functions
+% add yourapp client api functions
 
 %%% helper function
 
 %% invoked by
-%% your:start/0
+%% yourapp:start/0
 %%
 %% @doc Ensures that an application depended on by your application is started.
 %%
@@ -49,4 +49,4 @@ ensure_started(App) ->
             ok
     end.
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

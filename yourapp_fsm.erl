@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_fsm).
+-module(yourapp_fsm).
 
 -behaviour(gen_fsm).
 -export([init/1, handle_event/3, handle_sync_event/4]). % gen_fsm required
@@ -187,4 +187,4 @@ format_status(_Opt, [_PDict, StateData]) ->
 start_link() ->
     gen_fsm:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

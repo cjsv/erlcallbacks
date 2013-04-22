@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_sup).
+-module(yourapp_sup).
 
 -behaviour(supervisor).
 -export([init/1]). % supervisor required
@@ -62,4 +62,4 @@ init(_Args) ->
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

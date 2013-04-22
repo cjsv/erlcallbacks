@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_event).
+-module(yourapp_event).
 
 -behaviour(gen_event).
 -export([init/1, handle_event/2, handle_call/2]). % gen_event required
@@ -144,4 +144,4 @@ format_status(_Opt, [_PDict, State]) ->
 start_link() ->
     gen_event:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

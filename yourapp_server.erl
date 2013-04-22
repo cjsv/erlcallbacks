@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_server).
+-module(yourapp_server).
 
 -behaviour(gen_server).
 -export([init/1, handle_call/3, handle_cast/2]). % gen_server required
@@ -134,4 +134,4 @@ format_status(_Opt, [_PDict, State]) ->
 start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation

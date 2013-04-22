@@ -1,5 +1,5 @@
 %% -*- mode: erlang; indent-tabs-mode: nil -*-
--module(your_sup_bridge).
+-module(yourapp_sup_bridge).
 
 -behaviour(supervisor_bridge).
 -export([init/1, terminate/2]). % supervisor_bridge required
@@ -31,4 +31,4 @@ init(_Args) ->
 terminate(_Reason, _State) ->
     ok.
 
-%%% functions internal to your implementation
+%%% functions internal to yourapp implementation
