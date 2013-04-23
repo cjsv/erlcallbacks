@@ -4,6 +4,7 @@
 -behaviour(application).
 -export([start/2, stop/1]). % application required
 -export([start_phase/3, prep_stop/1, config_change/3]). % application optional
+-export([start/0, stop/0]). % suggested api
 
 %%% application required callbacks
 
@@ -89,5 +90,51 @@ prep_stop(State) ->
                            ok.
 config_change(_Changed, _New, _Remove) ->
     ok.
+
+%%% application api
+
+%% invoked by you
+%%
+%% @doc Start the applications yourapp depends on, then start yourapp.
+%% See also yourapp:start/0.
+%%
+%% The standard OTP application startup mechanisms are invoked.
+%%
+-spec start() ->
+                   ok |
+                   {error, Reason :: term()}.
+start() ->
+    %% add applications you depend on
+    %ensure_started(crypto),
+    application:start(?MODULE).
+
+%% invoked by you
+%%
+%% @doc Stop yourapp application. See also yourapp:stop/0.
+%%
+%% The standard OTP application shutdown mechanisms are invoked.
+%%
+-spec stop() ->
+                  ok |
+                  {error, Reason :: term()}.
+stop() ->
+    application:stop(?MODULE).
+
+%%% helper function
+
+%% invoked by
+%% yourapp_app:start/0
+%%
+%% @doc Ensures that an application depended on by your application is started.
+%%
+-spec ensure_started(App:: atom()) ->
+                            ok.
+ensure_started(App) ->
+    case application:start(App) of
+        ok ->
+            ok;
+        {error, {already_started, App}} ->
+            ok
+    end.
 
 %%% functions internal to yourapp implementation
