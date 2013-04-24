@@ -2,9 +2,9 @@
 -module(yourapp).
 
 -export([start/0, stop/0]). % suggested api
-% add yourapp client api functions
+% add yourapp client api exported functions
 
-%%% yourapp api
+%%% yourapp suggested api
 
 %% invoked by you
 %%
@@ -13,14 +13,13 @@
 %%
 %% The standard OTP application startup mechanisms are invoked.
 %%
-%% *** Change yourapp_app below to the name of your application callback
-%% module. ***
-%%
 -spec start() ->
                    ok |
                    {error, Reason :: term()}.
 start() ->
-    yourapp_app:start().
+    %% add applications you depend on
+    %ensure_started(crypto),
+    application:start(?MODULE).
 
 %% invoked by you
 %%
@@ -28,15 +27,27 @@ start() ->
 %%
 %% The standard OTP application shutdown mechanisms are invoked.
 %%
-%% *** Change yourapp_app below to the name of your application callback
-%% module. ***
-%%
 -spec stop() ->
                   ok |
                   {error, Reason :: term()}.
 stop() ->
-    yourapp_app:stop().
+    application:stop(?MODULE).
 
-% add yourapp client api functions
+%%% yourapp api
 
 %%% functions internal to yourapp implementation
+
+%% invoked by
+%% yourapp:start/0
+%%
+%% @doc Ensures that an application depended on by your application is started.
+%%
+-spec ensure_started(App:: atom()) ->
+                            ok.
+ensure_started(App) ->
+    case application:start(App) of
+        ok ->
+            ok;
+        {error, {already_started, App}} ->
+            ok
+    end.
