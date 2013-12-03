@@ -34,8 +34,8 @@
 %% gen_fsm:start_link/3,4, gen_fsm:start/3,4
 %% (gen_fsm:init_it/6)
 %%
-%% @doc Standard gen_fsm callback. Initial State for the gen_fsm
-%% server process.
+%% @doc Standard gen_fsm callback.
+%% Initial State for the gen_fsm server process.
 %%
 -spec init(Args :: term()) ->
                   {ok, StateName :: atom(), StateData :: term()} |
@@ -53,9 +53,10 @@ init(_Args) ->
 %% gen_fsm:send_all_state_event/2
 %% (gen_fsm:dispatch/4)
 %%
-%% @doc Standard gen_fsm callback. A specified Event has
-%% occurred. Similar to the StateName/2 functions, except that the
-%% same handler is called regardless of the current state.
+%% @doc Standard gen_fsm callback.
+%% A specified Event has occurred. Similar to the StateName/2
+%% functions, except that the same handler is called regardless of the
+%% current state.
 %%
 -spec handle_event(Event :: term(),
                    StateName :: atom(),
@@ -68,9 +69,9 @@ handle_event(_Event, _StateName, _State) ->
 %% gen_fsm:sync_send_all_state_event/3
 %% (gen_fsm:dispatch/4)
 %%
-%% @doc Standard gen_fsm callback. Similar to the StateName/3
-%% functions, except that the same handler is called regardless of the
-%% current state.
+%% @doc Standard gen_fsm callback.
+%% Similar to the StateName/3 functions, except that the same handler
+%% is called regardless of the current state.
 %%
 -spec handle_sync_event(Event :: term(),
                         From :: {pid(), Tag :: term()},
@@ -83,7 +84,8 @@ handle_sync_event(_Event, _From, _StateName, State) ->
 %% invoked by
 %% (gen_fsm:dispatch/4)
 %%
-%% @doc Standard gen_fsm callback. Handle non-request information.
+%% @doc Standard gen_fsm callback.
+%% Handle non-request information.
 %%
 -spec handle_info(Info :: term(),
                   StateName :: atom(),
@@ -95,7 +97,8 @@ handle_info(_Info, _StateName, State) ->
 %% invoked by
 %% (gen_fsm:terminate/7)
 %%
-%% @doc Standard gen_fsm callback. Clean up State before stopping.
+%% @doc Standard gen_fsm callback.
+%% Clean up State before stopping.
 %%
 -spec terminate(Reason :: normal | shutdown | {shutdown, term()} | term(),
                 StateName :: atom(),
@@ -107,8 +110,9 @@ terminate(_Reason, _StateName, _State) ->
 %% invoked by
 %% (gen_fsm:system_code_change/4)
 %%
-%% @doc Standard gen_fsm callback. Change State as a result of a code
-%% change during release upgrade or downgrade.
+%% @doc Standard gen_fsm callback.
+%% Change State as a result of a code change during release upgrade or
+%% downgrade.
 %%
 -spec code_change(OldVsn :: term() | {down, term()},
                   StateName :: atom(),
@@ -125,7 +129,7 @@ code_change(_OldVsn, StateName, State, _Extra) ->
 %% Standard gen_fsm callback for each named state. When in the named
 %% state, handle the specified event. No reply is expected.
 %%
-%% *** Before correcting the function body, copy this spec and
+%% *** Before elaborating the function body, copy this spec and
 %% function for each named state, add the state name to the -export
 %% list above, then remove this -spec and function. ***
 %%
@@ -142,7 +146,7 @@ StateName(_Event, State) ->
 %% Standard gen_fsm callback for each named state. When in the named
 %% state, handle the specified event synchronously and return a reply.
 %%
-%% *** Before correcting the function body, copy this spec and
+%% *** Before elaborating the function body, copy this spec and
 %% function for each named state, add the state name to the -export
 %% list above, then remove this -spec and function. ***
 %%
@@ -155,15 +159,15 @@ StateName(_Event, _From, State) ->
 
 %%% gen_fsm optional callback
 
+%% If you want to use the default format_status/2 function instead of
+%% providing your own here, remove format_status/2 from the -export
+%% list above and delete this -spec and function.
+
 %% invoked by
 %% (gen_fsm:format_status/2, gen_fsm:terminate/7)
 %%
-%% @doc Standard (optional) gen_fsm callback. Format the process'
-%% dictionary and state for output.
-%%
-%% *** If you want to use the default function instead of this
-%% callback, remove format_status/2 from the -export list above and
-%% delete this -spec and function. ***
+%% @doc Standard (optional) gen_fsm callback.
+%% Format the process' dictionary and state for output.
 %%
 -spec format_status(Opt :: normal | terminate,
                     [{PDict :: [{Key :: atom(), Value :: term()}],
@@ -176,8 +180,8 @@ format_status(_Opt, [_PDict, StateData]) ->
 
 %% invoked by you
 %%
-%% @doc API suggested in OTP Design Principles User's Guide. Start
-%% this gen_fsm process.
+%% @doc API suggested in OTP Design Principles User's Guide.
+%% Start this gen_fsm process.
 %%
 -spec start_link() ->
                         {ok, Pid :: pid()} |
@@ -187,4 +191,18 @@ format_status(_Opt, [_PDict, StateData]) ->
 start_link() ->
     gen_fsm:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to yourapp implementation
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+

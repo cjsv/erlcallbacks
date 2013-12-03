@@ -13,8 +13,8 @@
 %% gen_server:start_link/3,4, gen_server:start/3,4
 %% (gen_server:init_it/6)
 %%
-%% @doc Standard gen_server callback. Initial state for the gen_server
-%% server process.
+%% @doc Standard gen_server callback.
+%% Initial state for the gen_server server process.
 %%
 -spec init(Args :: term()) ->
                   {ok, State :: term()} |
@@ -28,7 +28,8 @@ init(Args) ->
 %% gen_server:call/2,3, gen_server:multi_call/2,3,4
 %% (gen_server:handle_msg5/6)
 %%
-%% @doc Standard gen_server callback. Handle synchronous requests.
+%% @doc Standard gen_server callback.
+%% Handle synchronous requests.
 %%
 -spec handle_call(Request :: term(),
                   From :: {pid(), Tag :: term()},
@@ -52,8 +53,8 @@ handle_call(_Request, _From, State) ->
 %% gen_server:cast/2, gen_server:abcast/2
 %% (gen_server:dispatch/3)
 %%
-%% @doc Standard gen_server callback. Handle a request not requiring a
-%% reply.
+%% @doc Standard gen_server callback.
+%% Handle a request not requiring a reply.
 %%
 -spec handle_cast(Request :: term(),
                   State :: term()) ->
@@ -66,7 +67,8 @@ handle_cast(_Request, State) ->
 %% invoked by
 %% (gen_server:dispatch/3)
 %%
-%% @doc Standard gen_server callback. Handle non-request information.
+%% @doc Standard gen_server callback.
+%% Handle non-request information.
 %%
 -spec handle_info(Info :: timeout() | term(), State :: term()) ->
                          {noreply, NewState :: term()} |
@@ -78,7 +80,8 @@ handle_info(_Info, State) ->
 %% invoked by
 %% (gen_server:terminate/6)
 %%
-%% @doc Standard gen_server callback. Clean up State before stopping.
+%% @doc Standard gen_server callback.
+%% Clean up State before stopping.
 %%
 -spec terminate(Reason :: normal | shutdown | {shutdown, term()} | term(),
                 State :: term()) ->
@@ -89,8 +92,9 @@ terminate(_Reason, _State) ->
 %% invoked by
 %% (gen_server:system_code_change/4)
 %%
-%% @doc Standard gen_server callback. Change State as a result of a code
-%% change during release upgrade or downgrade.
+%% @doc Standard gen_server callback.
+%% Change State as a result of a code change during release upgrade or
+%% downgrade.
 %%
 -spec code_change(OldVsn :: (term() | {down, term()}),
                   State :: term(),
@@ -102,15 +106,15 @@ code_change(_OldVsn, State, _Extra) ->
 
 %%% gen_server optional callback
 
+%% If you want to use the default format_status/2 function instead of
+%% providing your own here, remove format_status/2 from the -export
+%% list above and delete this -spec and function.
+
 %% invoked by
 %% (gen_server:format_status/2, gen_server:terminate/6)
 %%
-%% @doc Standard (optional) gen_server callback. Format the process'
-%% dictionary and state for output.
-%%
-%% *** If you want to use the default function instead of this
-%% callback, remove format_status/2 from the -export list above and
-%% delete this -spec and function. ***
+%% @doc Standard (optional) gen_server callback.
+%% Format the process' dictionary and state for output.
 %%
 -spec format_status(Opt :: normal | terminate,
                     [{PDict :: [{Key :: atom(), Value :: term()}],
@@ -123,8 +127,8 @@ format_status(_Opt, [_PDict, State]) ->
 
 %% invoked by you
 %%
-%% @doc API suggested in OTP Design Principles User's Guide. Start
-%% this gen_server process.
+%% @doc API suggested in OTP Design Principles User's Guide.
+%% Start this gen_server process.
 %%
 -spec start_link() ->
                         {ok, Pid :: pid()} |
@@ -134,4 +138,18 @@ format_status(_Opt, [_PDict, State]) ->
 start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to yourapp implementation
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+

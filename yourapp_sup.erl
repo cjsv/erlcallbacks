@@ -33,8 +33,8 @@
 %% supervisor:start_link/2,3
 %% (supervisor:init/1, supervisor:code_change/3)
 %%
-%% @doc Standard supervisor callback. Specify the child processes to
-%% supervise.
+%% @doc Standard supervisor callback.
+%% Specify the child processes to supervise.
 %%
 -spec init(Args :: term()) ->
                   {ok, {{RestartStrategy :: strategy(),
@@ -49,8 +49,8 @@ init(_Args) ->
 
 %% invoked by you
 %%
-%% @doc API suggested in OTP Design Principles User's Guide. Start
-%% this supervisor process.
+%% @doc API suggested in OTP Design Principles User's Guide.
+%% Start this supervisor process.
 %%
 -spec start_link() ->
                         {ok, Pid :: pid()} |
@@ -62,4 +62,18 @@ init(_Args) ->
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
-%%% functions internal to yourapp implementation
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+

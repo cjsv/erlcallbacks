@@ -10,8 +10,8 @@
 %% supervisor_bridge:start_link/2,3
 %% (supervisor_bridge:init/1)
 %%
-%% @doc Standard supervisor_bridge callback. Initial state for the
-%% supervisor_bridge server process.
+%% @doc Standard supervisor_bridge callback.
+%% Initial state for the supervisor_bridge server process.
 %%
 -spec init(Args :: term()) ->
                   {ok, Pid :: pid(), State :: term()} |
@@ -23,7 +23,8 @@ init(_Args) ->
 %% invoked by
 %% (supervisor_bridge:terminate_pid/2)
 %%
-%% @doc Standard supervisor_bridge callback. Clean up State before stopping.
+%% @doc Standard supervisor_bridge callback.
+%% Clean up State before stopping.
 %%
 -spec terminate(Reason :: shutdown | term(),
                 State :: term()) ->
@@ -31,4 +32,18 @@ init(_Args) ->
 terminate(_Reason, _State) ->
     ok.
 
-%%% functions internal to yourapp implementation
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+

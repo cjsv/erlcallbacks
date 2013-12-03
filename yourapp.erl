@@ -2,14 +2,14 @@
 -module(yourapp).
 
 -export([start/0, stop/0]). % suggested api
-% add yourapp client api exported functions
+% add your client api functions
 
-%%% yourapp suggested api
+%%% your api
 
 %% invoked by you
 %%
-%% @doc Start the applications yourapp depends on, then start yourapp.
-%% See also yourapp_app:start/0.
+%% @doc Ensure that the applications yourapp depends on are started,
+%% then start yourapp. See also yourapp_app:start/0.
 %%
 %% The standard OTP application startup mechanisms are invoked.
 %%
@@ -23,27 +23,24 @@ start() ->
 
 %% invoked by you
 %%
-%% @doc Stop yourapp application.
+%% @doc Stop yourapp.
 %%
 %% The standard OTP application shutdown mechanisms are invoked.
 %%
--spec stop() ->
-                  ok |
-                  {error, Reason :: term()}.
+-spec stop() -> ok | {error, Reason :: term()}.
 stop() ->
     application:stop(?MODULE).
 
-%%% yourapp api
+% add your client api functions
 
-%%% functions internal to yourapp implementation
+%%% helper function
 
 %% invoked by
 %% yourapp:start/0
 %%
-%% @doc Ensures that an application depended on by your application is started.
+%% @doc Ensure that an application depended on by yourapp is started.
 %%
--spec ensure_started(App:: atom()) ->
-                            ok.
+-spec ensure_started(App:: atom()) -> ok.
 ensure_started(App) ->
     case application:start(App) of
         ok ->
@@ -51,3 +48,19 @@ ensure_started(App) ->
         {error, {already_started, App}} ->
             ok
     end.
+
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+

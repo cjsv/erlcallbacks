@@ -14,8 +14,8 @@
 %% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
 %% (gen_event:server_add_handler/3, gen_event:do_swap/7)
 %%
-%% @doc Standard gen_event callback. Initial State for the gen_event
-%% server process.
+%% @doc Standard gen_event callback.
+%% Initial State for the gen_event server process.
 %%
 -spec init(InitArgs :: term()) ->
                   {ok, State :: term()} |
@@ -27,7 +27,8 @@ init(_Args) ->
 %% invoked by
 %% gen_event:notify/2, gen_event:sync_notify/2
 %%
-%% @doc Standard gen_event callback. A specified Event has occurred.
+%% @doc Standard gen_event callback.
+%% A specified Event has occurred.
 %%
 -spec handle_event(Event :: term(),
                    State :: term()) ->
@@ -46,7 +47,8 @@ handle_event(_Event, State) ->
 %% gen_event:call/3,4
 %% (gen_event:server_call_update/3)
 %%
-%% @doc Standard gen_event callback. Handle synchronous requests.
+%% @doc Standard gen_event callback.
+%% Handle synchronous requests.
 %%
 -spec handle_call(Request :: term(),
                   State :: term()) ->
@@ -65,7 +67,8 @@ handle_call(_Request, State) ->
 %% invoked by
 %% (gen_event:server_notify/4)
 %%
-%% @doc Standard gen_event callback. Handle non-event information.
+%% @doc Standard gen_event callback.
+%% Handle non-event information.
 %%
 -spec handle_info(Info :: term(), State :: term()) ->
                          {ok, NewState :: term()} |
@@ -84,7 +87,8 @@ handle_info(_Info, State) ->
 %% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
 %% (gen_event:do_terminate/7)
 %%
-%% @doc Standard gen_event callback. Clean up State before stopping.
+%% @doc Standard gen_event callback.
+%% Clean up State before stopping.
 %%
 -spec terminate(Args :: term() |
                         {stop, Reason :: term()} |
@@ -100,8 +104,9 @@ terminate(_Args, _State) ->
 %% invoked by
 %% (gen_event:system_code_change/4)
 %%
-%% @doc Standard gen_event callback. Change State as a result of a code
-%% change during release upgrade or downgrade.
+%% @doc Standard gen_event callback.
+%% Change State as a result of a code change during release upgrade or
+%% downgrade.
 %%
 -spec code_change(OldVsn :: (term() | {down, term()}),
                   State :: term(),
@@ -112,15 +117,15 @@ code_change(_OldVsn, State, _Extra) ->
 
 %%% gen_event optional callback
 
+%% If you want to use the default format_status/2 function instead of
+%% providing your own here, remove format_status/2 from the -export
+%% list above and delete this -spec and function.
+
 %% invoked by
 %% (gen_event:format_status/2, gen_event:report_error/5)
 %%
-%% @doc Standard (optional) gen_event callback. Format the process'
-%% dictionary and state for output.
-%%
-%% *** If you want to use the default function instead of this
-%% callback, remove format_status/2 from the -export list above and
-%% delete this -spec and function. ***
+%% @doc Standard (optional) gen_event callback.
+%% Format the process' dictionary and state for output.
 %%
 -spec format_status(Opt :: normal | terminate,
                     [{PDict :: [{Key :: atom(), Value :: term()}],
@@ -133,8 +138,8 @@ format_status(_Opt, [_PDict, State]) ->
 
 %% invoked by you
 %%
-%% @doc API suggested in OTP Design Principles User's Guide. Start
-%% this gen_event process.
+%% @doc API suggested in OTP Design Principles User's Guide.
+%% Start this gen_event process.
 %%
 -spec start_link() ->
                         {ok, Pid :: pid()} |
@@ -144,4 +149,18 @@ format_status(_Opt, [_PDict, State]) ->
 start_link() ->
     gen_event:start_link({local, ?MODULE}, ?MODULE, [], []).
 
-%%% functions internal to yourapp implementation
+%%% functions internal to your implementation
+
+%%% testing
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+
+maybe_you_should_write_a_test() ->
+    ?assertEqual(
+       "No, but I will!",
+       "Have you written any tests?"),
+    ok.
+
+-endif.
+
