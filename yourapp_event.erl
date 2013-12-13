@@ -12,7 +12,9 @@
 %% invoked by
 %% gen_event:add_handler/3, gen_event:add_sup_handler/3,
 %% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
-%% (gen_event:server_add_handler/3, gen_event:do_swap/7)
+%%
+%% invoked indirectly by
+%% gen_event:server_add_handler/3, gen_event:do_swap/7
 %%
 %% @doc Standard gen_event callback.
 %% Initial State for the gen_event server process.
@@ -45,7 +47,9 @@ handle_event(_Event, State) ->
 
 %% invoked by
 %% gen_event:call/3,4
-%% (gen_event:server_call_update/3)
+%%
+%% invoked indirectly by
+%% gen_event:server_call_update/3
 %%
 %% @doc Standard gen_event callback.
 %% Handle synchronous requests.
@@ -64,8 +68,8 @@ handle_event(_Event, State) ->
 handle_call(_Request, State) ->
     {ok, reply, State}.
 
-%% invoked by
-%% (gen_event:server_notify/4)
+%% invoked indirectly by
+%% gen_event:server_notify/4
 %%
 %% @doc Standard gen_event callback.
 %% Handle non-event information.
@@ -85,7 +89,9 @@ handle_info(_Info, State) ->
 %% invoked by
 %% gen_event:delete_handler/3, gen_event:stop/1
 %% gen_event:swap_handler/3, gen_event:swap_sup_handler/3
-%% (gen_event:do_terminate/7)
+%%
+%% invoked indirectly by
+%% gen_event:do_terminate/7
 %%
 %% @doc Standard gen_event callback.
 %% Clean up State before stopping.
@@ -101,8 +107,8 @@ handle_info(_Info, State) ->
 terminate(_Args, _State) ->
     ok.
 
-%% invoked by
-%% (gen_event:system_code_change/4)
+%% invoked indirectly by
+%% gen_event:system_code_change/4
 %%
 %% @doc Standard gen_event callback.
 %% Change State as a result of a code change during release upgrade or
@@ -121,8 +127,8 @@ code_change(_OldVsn, State, _Extra) ->
 %% providing your own here, remove format_status/2 from the -export
 %% list above and delete this -spec and function.
 
-%% invoked by
-%% (gen_event:format_status/2, gen_event:report_error/5)
+%% invoked indirectly by
+%% gen_event:format_status/2, gen_event:report_error/5
 %%
 %% @doc Standard (optional) gen_event callback.
 %% Format the process' dictionary and state for output.
@@ -136,7 +142,7 @@ format_status(_Opt, [_PDict, State]) ->
 
 %%% gen_event api
 
-%% invoked by you
+%% invoked by your code
 %%
 %% @doc API suggested in OTP Design Principles User's Guide.
 %% Start this gen_event process.

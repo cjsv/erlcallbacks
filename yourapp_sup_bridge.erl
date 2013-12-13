@@ -8,7 +8,9 @@
 
 %% invoked by
 %% supervisor_bridge:start_link/2,3
-%% (supervisor_bridge:init/1)
+%%
+%% invoked indirectly by
+%% supervisor_bridge:init/1
 %%
 %% @doc Standard supervisor_bridge callback.
 %% Initial state for the supervisor_bridge server process.
@@ -20,8 +22,8 @@
 init(_Args) ->
     ignore.
 
-%% invoked by
-%% (supervisor_bridge:terminate_pid/2)
+%% invoked indirectly by
+%% supervisor_bridge:terminate_pid/2
 %%
 %% @doc Standard supervisor_bridge callback.
 %% Clean up State before stopping.

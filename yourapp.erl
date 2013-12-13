@@ -6,7 +6,7 @@
 
 %%% your api
 
-%% invoked by you
+%% invoked by your code
 %%
 %% @doc Ensure that the applications yourapp depends on are started,
 %% then start yourapp. See also yourapp_app:start/0.
@@ -21,7 +21,7 @@ start() ->
     %ensure_started(crypto),
     application:start(?MODULE).
 
-%% invoked by you
+%% invoked by your code
 %%
 %% @doc Stop yourapp.
 %%

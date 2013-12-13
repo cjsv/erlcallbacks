@@ -32,7 +32,9 @@
 
 %% invoked by
 %% gen_fsm:start_link/3,4, gen_fsm:start/3,4
-%% (gen_fsm:init_it/6)
+%%
+%% invoked indirectly by
+%% gen_fsm:init_it/6
 %%
 %% @doc Standard gen_fsm callback.
 %% Initial State for the gen_fsm server process.
@@ -48,10 +50,11 @@
 init(_Args) ->
     ignore.
 
-
 %% invoked by
 %% gen_fsm:send_all_state_event/2
-%% (gen_fsm:dispatch/4)
+%%
+%% invoked indirectly by
+%% gen_fsm:dispatch/4
 %%
 %% @doc Standard gen_fsm callback.
 %% A specified Event has occurred. Similar to the StateName/2
@@ -67,7 +70,9 @@ handle_event(_Event, _StateName, _State) ->
 
 %% invoked by
 %% gen_fsm:sync_send_all_state_event/3
-%% (gen_fsm:dispatch/4)
+%%
+%% invoked indirectly by
+%% gen_fsm:dispatch/4
 %%
 %% @doc Standard gen_fsm callback.
 %% Similar to the StateName/3 functions, except that the same handler
@@ -81,8 +86,8 @@ handle_event(_Event, _StateName, _State) ->
 handle_sync_event(_Event, _From, _StateName, State) ->
     {stop, unimplemented, State}.
 
-%% invoked by
-%% (gen_fsm:dispatch/4)
+%% invoked indirectly by
+%% gen_fsm:dispatch/4
 %%
 %% @doc Standard gen_fsm callback.
 %% Handle non-request information.
@@ -94,8 +99,8 @@ handle_sync_event(_Event, _From, _StateName, State) ->
 handle_info(_Info, _StateName, State) ->
     {stop, unimplemented, State}.
 
-%% invoked by
-%% (gen_fsm:terminate/7)
+%% invoked indirectly by
+%% gen_fsm:terminate/7
 %%
 %% @doc Standard gen_fsm callback.
 %% Clean up State before stopping.
@@ -107,8 +112,8 @@ handle_info(_Info, _StateName, State) ->
 terminate(_Reason, _StateName, _State) ->
     ok.
 
-%% invoked by
-%% (gen_fsm:system_code_change/4)
+%% invoked indirectly by
+%% gen_fsm:system_code_change/4
 %%
 %% @doc Standard gen_fsm callback.
 %% Change State as a result of a code change during release upgrade or
@@ -124,7 +129,9 @@ code_change(_OldVsn, StateName, State, _Extra) ->
 
 %% invoked by
 %% gen_fsm:send_event/2
-%% (gen_fsm:dispatch/4)
+%%
+%% invoked indirectly by
+%% gen_fsm:dispatch/4
 %%
 %% Standard gen_fsm callback for each named state. When in the named
 %% state, handle the specified event. No reply is expected.
@@ -141,7 +148,9 @@ StateName(_Event, State) ->
 
 %% invoked by
 %% gen_fsm:sync_send_event/2,3
-%% (gen_fsm:dispatch/4)
+%%
+%% invoked indirectly by
+%% gen_fsm:dispatch/4
 %%
 %% Standard gen_fsm callback for each named state. When in the named
 %% state, handle the specified event synchronously and return a reply.
@@ -163,8 +172,8 @@ StateName(_Event, _From, State) ->
 %% providing your own here, remove format_status/2 from the -export
 %% list above and delete this -spec and function.
 
-%% invoked by
-%% (gen_fsm:format_status/2, gen_fsm:terminate/7)
+%% invoked indirectly by
+%% gen_fsm:format_status/2, gen_fsm:terminate/7
 %%
 %% @doc Standard (optional) gen_fsm callback.
 %% Format the process' dictionary and state for output.
@@ -178,7 +187,7 @@ format_status(_Opt, [_PDict, StateData]) ->
 
 %%% gen_fsm api
 
-%% invoked by you
+%% invoked by your code
 %%
 %% @doc API suggested in OTP Design Principles User's Guide.
 %% Start this gen_fsm process.

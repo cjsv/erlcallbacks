@@ -31,7 +31,9 @@
 
 %% invoked by
 %% supervisor:start_link/2,3
-%% (supervisor:init/1, supervisor:code_change/3)
+%%
+%% invoked indirectly by
+%% supervisor:init/1, supervisor:code_change/3
 %%
 %% @doc Standard supervisor callback.
 %% Specify the child processes to supervise.
@@ -47,7 +49,7 @@ init(_Args) ->
 
 %%% supervisor api
 
-%% invoked by you
+%% invoked by your code
 %%
 %% @doc API suggested in OTP Design Principles User's Guide.
 %% Start this supervisor process.
