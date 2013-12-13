@@ -1,4 +1,4 @@
-%% -*- mode: erlang; indent-tabs-mode: nil -*-
+% -*- mode: erlang; erlang-indent-level: 4; indent-tabs-mode: nil; fill-column: 80; comment-column: 76 -*-
 -module(yourapp_app_sup).
 
 -behaviour(application).
