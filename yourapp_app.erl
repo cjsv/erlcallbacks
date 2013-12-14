@@ -16,10 +16,6 @@
 %%
 %% @doc Standard application callback.
 %% Start the application's supervisor.
-%%
-%% *** Change yourapp_sup below to the name of the yourapp supervisor
-%% callback module, then remove this paragraph. ***
-%%
 -spec start(StartType :: normal |
                          {takeover, Node :: node()} |
                          {failover, Node :: node()},
@@ -28,6 +24,10 @@
                    {ok, pid(), State :: term()} |
                    {error, Reason :: term()}.
 start(_StartType, _StartArgs) ->
+%%
+%% *** Change yourapp_sup to the name of the yourapp supervisor
+%% callback module, then remove this paragraph. ***
+%%
     yourapp_sup:start_link().
 
 %% invoked by
@@ -103,7 +103,7 @@ config_change(_Changed, _New, _Remove) ->
                    ok |
                    {error, Reason :: term()}.
 start() ->
-    application:start(?MODULE).
+    application:start(yourapp).
 
 %%% functions internal to your implementation
 

@@ -19,7 +19,7 @@
 start() ->
     %% add applications you depend on
     %ensure_started(crypto),
-    application:start(?MODULE).
+    application:start(yourapp).
 
 %% invoked by your code
 %%
